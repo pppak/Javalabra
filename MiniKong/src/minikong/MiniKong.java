@@ -1,7 +1,7 @@
 
-package minikonk;
+package minikong;
 
-public class MiniKonk {
+public class MiniKong {
 
     public static void main(String[] args) {
         
