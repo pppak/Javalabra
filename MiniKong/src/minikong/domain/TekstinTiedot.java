@@ -5,7 +5,7 @@ import java.util.TreeMap;
 public class TekstinTiedot {
 
     private int sanamaara;
-    private TreeMap<String, SananEsiintyma> sanojenEsiintymat;
+    private TreeMap<String, SananNaapurit> sanojenEsiintymat;
 
     public TekstinTiedot() {
         this.sanojenEsiintymat = new TreeMap();
@@ -19,7 +19,7 @@ public class TekstinTiedot {
         return sanamaara;
     }
     
-    public SananEsiintyma getSana(String sana) {
+    public SananNaapurit getSana(String sana) {
         return this.sanojenEsiintymat.get(sana);
     }
     

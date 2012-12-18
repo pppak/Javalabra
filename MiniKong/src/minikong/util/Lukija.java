@@ -20,5 +20,9 @@ public class Lukija {
         this.luk.close();
     }
     
+    public boolean onkoSeuraava() {
+        return this.luk.hasNext();
+    }
+    
     
 }
