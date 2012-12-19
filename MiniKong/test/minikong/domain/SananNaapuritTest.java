@@ -17,7 +17,27 @@ public class SananNaapuritTest {
     public void sanaItseOikein() {
         assertEquals(n.getSana(), "sana");
     }
+   
+    @Test
+    public void pisteitaEiLisata() {
+        n.lisaaOikea("cat.");
+        assertEquals(n.getSuurin(false), "cat");
+    }
+    
+    @Test
+    public void pilkkujaEiLisata() {
+        n.lisaaVasen("aneurysm,");
+        assertEquals(n.getSuurin(true), "aneurysm");
+    }
 
+    @Test
+    public void eiSitaatteja(){
+        n.lisaaOikea("\"koala\"");
+        assertEquals(n.getSuurin(false), "koala");
+        n.lisaaVasen("\'poliisi\'");
+        assertEquals(n.getSuurin(true), "poliisi");
+    }
+    
     @Test
     public void oikeaLisataan() {
         n.lisaaOikea("banaani");

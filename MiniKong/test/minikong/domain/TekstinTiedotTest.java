@@ -2,13 +2,11 @@ package minikong.domain;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import minikong.util.Lukija;
 import minikong.util.TekstinKasittelija;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class TekstinTiedotTest {
 

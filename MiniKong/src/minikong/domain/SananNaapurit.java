@@ -30,6 +30,7 @@ public class SananNaapurit extends Sana{
     }
     
     public void lisaaVasen(String v) {
+        v = super.getSiistija().trim(v);
         if (this.vasen.containsKey(v)) {
             SananEsiintyma es = this.vasen.get(v);
             es.sanaEsiintyy();
@@ -40,6 +41,7 @@ public class SananNaapurit extends Sana{
     }
     
     public void lisaaOikea(String o) {
+        o = super.getSiistija().trim(o);
         if (this.oikea.containsKey(o)) {
             SananEsiintyma es = this.oikea.get(o);
             es.sanaEsiintyy();

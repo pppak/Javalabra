@@ -34,4 +34,14 @@ public class SananEsiintymaTest {
         assertEquals(s.compareTo(s2), 0);
     }
     
+    @Test
+    public void sanaTrimmataan(){
+        SananEsiintyma s2 = new SananEsiintyma("\"kääkkä\'");
+        assertEquals(s2.getSana(), "kääkkä");
+        SananEsiintyma s3 = new SananEsiintyma("g.");
+        assertEquals(s3.getSana(), "g");
+        SananEsiintyma s4 = new SananEsiintyma("l,");
+        assertEquals(s4.getSana(), "l");
+    }
+    
 }
