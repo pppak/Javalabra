@@ -1,13 +1,15 @@
 package minikong.domain;
 
-public class SananEsiintymä extends Sana implements Comparable<SananEsiintymä> {
+public class SananEsiintyma extends Sana implements Comparable<SananEsiintyma> {
 
-    public SananEsiintymä(String sana) {
+    public SananEsiintyma(String sana) {
         super(sana);
     }
 
+
+    
     @Override
-    public int compareTo(SananEsiintymä e) {
+    public int compareTo(SananEsiintyma e) {
         if (super.getEsiintymisMaara() == e.getEsiintymisMaara()) {
             return 0;
         } else if (super.getEsiintymisMaara() > e.getEsiintymisMaara()) {

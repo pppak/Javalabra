@@ -8,6 +8,10 @@ public class Lukija {
     
     private Scanner luk;
 
+    public Lukija() {
+        this.luk = new Scanner(System.in);
+    }
+
     public Lukija(File tiedosto) throws FileNotFoundException {
         this.luk = new Scanner(tiedosto);
     }

@@ -7,7 +7,7 @@ public abstract class Sana{
     
     public Sana(String sana) {
         this.sana = sana;
-        this.esiintymisMaara = 0;
+        this.esiintymisMaara = 1;
     }
     
     public void sanaEsiintyy() {
