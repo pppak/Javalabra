@@ -5,8 +5,6 @@ public class SananEsiintyma extends Sana implements Comparable<SananEsiintyma> {
     public SananEsiintyma(String sana) {
         super(sana);
     }
-
-
     
     @Override
     public int compareTo(SananEsiintyma e) {

@@ -32,6 +32,7 @@ public class TekstinTiedot {
     }
     
     public void lisaaUusiSana(String sana){
+        //deal with pisteet
         this.sanojenEsiintymat.put(sana, new SananNaapurit(sana));
     }
     

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class SananNaapurit extends Sana implements Comparable<SananNaapurit>{
+public class SananNaapurit extends Sana{
     
     private HashMap<String, SananEsiintyma> vasen;
     private HashMap<String, SananEsiintyma> oikea;
@@ -15,24 +15,18 @@ public class SananNaapurit extends Sana implements Comparable<SananNaapurit>{
         this.oikea = new HashMap();
     }
     
-    public String getVasen() {
-        ArrayList<SananEsiintyma> lista = new ArrayList();
-        lista.addAll(vasen.values());
-        if (lista.isEmpty()) {
-            return "Ei sanoja vasemmalla";
+    public String getSuurin(Boolean onkoVasen) {
+        ArrayList<SananEsiintyma> jarjestettavaLista = new ArrayList();
+        if (onkoVasen) {
+            jarjestettavaLista.addAll(vasen.values());
+        } else {
+            jarjestettavaLista.addAll(oikea.values());
         }
-        Collections.sort(lista);
-        return lista.get(0).getSana();
-    }
-    
-    public String getOikea() {
-        ArrayList<SananEsiintyma> lista = new ArrayList();
-        lista.addAll(oikea.values());
-        if (lista.isEmpty()) {
-            return "Ei sanoja oikealla";
+        if (jarjestettavaLista.isEmpty()) {
+            return "ei sanoja"; //toteuta paremmin?
         }
-        Collections.sort(lista);
-        return lista.get(0).getSana();
+        Collections.sort(jarjestettavaLista);
+        return jarjestettavaLista.get(0).getSana();
     }
     
     public void lisaaVasen(String v) {
@@ -54,18 +48,5 @@ public class SananNaapurit extends Sana implements Comparable<SananNaapurit>{
             this.oikea.put(o, new SananEsiintyma(o));
         }
     }
-    
-
-    @Override
-    public int compareTo(SananNaapurit n) {
-        if (super.getEsiintymisMaara() == n.getEsiintymisMaara()) {
-            return 0;
-        } else if (super.getEsiintymisMaara() > n.getEsiintymisMaara()) {
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-
     
 }

@@ -14,4 +14,4 @@
 19.12
   - alustava versio ohjelmasta toiminalliseksi jollain tasolla,     
     aloitetaan testien teko (2,5 h)
-  
+  - refaktoroitu hieman, testit tehty domain-paketin luokille (2,5 h)

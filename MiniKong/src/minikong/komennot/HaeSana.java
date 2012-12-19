@@ -9,7 +9,6 @@ public class HaeSana extends Komento{
     public HaeSana(TekstinTiedot t, Lukija l) {
         super(t, l);
     }
-
     
     @Override
     public void suorita() {
@@ -21,8 +20,8 @@ public class HaeSana extends Komento{
         if (!super.getTeksti().sanaListattu(sana)) {
             System.out.println("Sanaa ei löydy tekstistä");
         } else {
-            System.out.println("Yleisin oikealla: " + super.getTeksti().getSana(sana).getOikea());
-            System.out.println("Yleisin vasemmalla: " + super.getTeksti().getSana(sana).getVasen());
+            System.out.println("Yleisin oikealla: " + super.getTeksti().getSana(sana).getSuurin(false));
+            System.out.println("Yleisin vasemmalla: " + super.getTeksti().getSana(sana).getSuurin(true));
         }
     }
 
