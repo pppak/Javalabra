@@ -32,7 +32,7 @@ public class Sovellus {
     private void teeKomennot() {
         this.komennot = new HashMap();
         this.komennot.put(1, new HankiTiedosto(teksti, lukija));
-        this.komennot.put(2, new HaeSana(teksti, lukija));
+        this.komennot.put(2, new HaeSana(teksti));
     }
     
     

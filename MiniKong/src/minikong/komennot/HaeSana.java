@@ -2,12 +2,11 @@ package minikong.komennot;
 
 import java.util.Scanner;
 import minikong.domain.TekstinTiedot;
-import minikong.util.Lukija;
 
 public class HaeSana extends Komento{
 
-    public HaeSana(TekstinTiedot t, Lukija l) {
-        super(t, l);
+    public HaeSana(TekstinTiedot t) {
+        super(t);
     }
     
     @Override

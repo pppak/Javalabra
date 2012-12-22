@@ -9,7 +9,7 @@ public class Lukija {
     private Scanner luk;
 
     public Lukija() {
-        this.luk = new Scanner(System.in);
+        this.luk = new Scanner("");
     }
 
     public Lukija(File tiedosto) throws FileNotFoundException {

@@ -1,15 +1,12 @@
 package minikong.komennot;
 
 import minikong.domain.TekstinTiedot;
-import minikong.util.Lukija;
 
 public abstract class Komento {
 
     private TekstinTiedot teksti;
-    public Lukija lukija;
     
-    public Komento(TekstinTiedot t, Lukija l) {
-        this.lukija = l;
+    public Komento(TekstinTiedot t) {
         this.teksti = t;
     }
 
