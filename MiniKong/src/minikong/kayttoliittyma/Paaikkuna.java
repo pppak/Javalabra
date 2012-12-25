@@ -1,6 +1,9 @@
 package minikong.kayttoliittyma;
 
+import java.awt.Container;
+import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 public class Paaikkuna implements Runnable{
     
@@ -8,13 +11,23 @@ public class Paaikkuna implements Runnable{
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        frame = new JFrame();
+        frame.setPreferredSize(new Dimension(500, 300));
+        
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
+        teeKomponentit(frame.getContentPane());
+        
+        frame.pack();
+        frame.setVisible(true);
     }
     
-    
-
     public JFrame getFrame() {
         return frame;
+    }
+
+    private void teeKomponentit(Container contentPane) {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
     
 }
