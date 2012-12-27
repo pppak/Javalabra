@@ -13,10 +13,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import minikong.domain.TekstinTiedot;
 
 public class Paaikkuna implements Runnable{
     
     private JFrame frame;
+    private TekstinTiedot teksti;
+
+    public Paaikkuna(TekstinTiedot teksti) {
+        this.teksti = teksti;
+    }
+    
+    
 
     @Override
     public void run() {

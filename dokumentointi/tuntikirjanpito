@@ -37,3 +37,8 @@
   - käyttöliittymän komponentit samaan luokkaan helpompaa käsittelyä 
     varten, lisätty komponentteja (20 min)
   - käyttiksen graafinen ilme perustoiminnallisuudelle ok (1 h)
+  - käyttiksen + sovelluslogiikan yhteistoiminnan suunnittelua (10 min)
+  - tapahtumakuuntelijoiden kertausta (20 min)
+  - käyttöliittymän käynnistyminen sovellus-luokan vastuuksi, viesti-
+    luokan ohjelmointia (+tarpeellisuuden pohdintaa) (30 min)
+  - 
