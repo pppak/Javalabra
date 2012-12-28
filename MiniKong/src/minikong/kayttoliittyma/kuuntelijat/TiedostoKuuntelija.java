@@ -43,5 +43,6 @@ public class TiedostoKuuntelija implements ActionListener {
         tulo.addTeksti("*Uusi tiedosto valittu!* \n");
         tulo.addTeksti("Valittu tiedosto: " + tiedVal.getName(file) + "\n");
         tulo.addTeksti("Tekstin sanamäärä: " + this.teksti.getSanamaara() + "\n");
+        tulo.addTeksti("---\n");
     }
 }

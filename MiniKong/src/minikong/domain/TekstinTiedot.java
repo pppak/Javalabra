@@ -1,16 +1,13 @@
 package minikong.domain;
 
 import java.util.TreeMap;
-import minikong.util.Siistija;
 
 public class TekstinTiedot {
     
-    private Siistija siistija;
     private int sanamaara;
     private TreeMap<String, SananNaapurit> sanojenNaapurit;
 
     public TekstinTiedot() {
-        siistija = new Siistija();
         this.sanojenNaapurit = new TreeMap();
         this.sanamaara = 0;
     }
@@ -35,12 +32,10 @@ public class TekstinTiedot {
     }
     
     public void lisaaUusiSana(String sana){
-        sana = this.siistija.trim(sana);
         this.sanojenNaapurit.put(sana, new SananNaapurit(sana));
     }
     
     public void lisaaNaapuri(String sana, String naapuri, Boolean vasenVai) {
-        sana = this.siistija.trim(sana);
         if (vasenVai) {
             this.sanojenNaapurit.get(sana).lisaaVasen(naapuri);
         } else {

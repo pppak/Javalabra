@@ -15,7 +15,7 @@ public class SananNaapurit extends Sana{
         this.oikea = new HashMap();
     }
     
-    public String getSuurin(Boolean onkoVasen) {
+    public SananEsiintyma getSuurin(Boolean onkoVasen) {
         ArrayList<SananEsiintyma> jarjestettavaLista = new ArrayList();
         if (onkoVasen) {
             jarjestettavaLista.addAll(vasen.values());
@@ -23,14 +23,13 @@ public class SananNaapurit extends Sana{
             jarjestettavaLista.addAll(oikea.values());
         }
         if (jarjestettavaLista.isEmpty()) {
-            return "ei sanoja"; //toteuta paremmin?
+            return null;
         }
         Collections.sort(jarjestettavaLista);
-        return jarjestettavaLista.get(0).getSana();
+        return jarjestettavaLista.get(0);
     }
     
     public void lisaaVasen(String v) {
-        v = super.getSiistija().trim(v);
         if (this.vasen.containsKey(v)) {
             SananEsiintyma es = this.vasen.get(v);
             es.sanaEsiintyy();
@@ -41,7 +40,6 @@ public class SananNaapurit extends Sana{
     }
     
     public void lisaaOikea(String o) {
-        o = super.getSiistija().trim(o);
         if (this.oikea.containsKey(o)) {
             SananEsiintyma es = this.oikea.get(o);
             es.sanaEsiintyy();

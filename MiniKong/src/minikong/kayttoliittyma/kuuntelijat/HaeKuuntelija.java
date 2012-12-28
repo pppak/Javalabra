@@ -32,7 +32,9 @@ public class HaeKuuntelija implements ActionListener{
         
         HaeSana haku = new HaeSana(teksti);
         tulos.addTeksti("Haettu sana: " + sana.getText() + "\n");
+        tulos.addTeksti("Sana esiintyy tekstissä " + teksti.getSana(sana.getText()).getEsiintymisMaara() + " kertaa" + "\n");
         tulos.addTeksti("Yleisin naapurisana vasemmalla: " + haku.getVasen(sana.getText()) + "\n");
         tulos.addTeksti("Yleisin naapurisana oikealla: " + haku.getOikea(sana.getText()) + "\n"); 
+        tulos.addTeksti("***\n");
     }
 }

@@ -9,7 +9,7 @@ public class OhjeKuuntelija implements ActionListener{
     Viesti ohjeViesti;
 
     public OhjeKuuntelija() {
-        String teksti = "<html>Syötä ohjelmalle jokin \'txt\' muotoinen tiedosto.<br> Tämän jälkeen voit hakea sanan naapureita tekstistä. <br>Tulokset ja tietoa mahdollisista virheellisistä<br> syötteistä ilmestyvät ikkunan alaosaan.</html>";
+        String teksti = "<html>Syötä ohjelmalle jokin \'txt\' muotoinen tiedosto.<br> Tämän jälkeen voit hakea sanan naapureita tekstistä. <br>Tulokset ja tietoa mahdollisista virheellisistä<br> syötteistä ilmestyvät ikkunan alaosaan.<br>Luvut suluissa ovat sanojen<br>esiintymismäärät kyseisessä asemassa.</html>";
         this.ohjeViesti = new Viesti("Ohje", teksti, 300, 300);
     }
 
