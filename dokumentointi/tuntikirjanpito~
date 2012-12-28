@@ -44,4 +44,5 @@
 28.12
   - ohje-napille kuuntelija + toimii (15 min)
   - lisää kuuntelijoita, tiedoston haku + tulosten tyhjentäminen 
-    toiminnallisiksi (1 h)
+    toiminnallisiksi, kuuntelijat omaan pakkaukseen (1 h)
+  - versio 1 ohjelmasta toimii, ei kovin testattu vielä (1 h)

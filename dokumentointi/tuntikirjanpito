@@ -45,3 +45,6 @@
   - ohje-napille kuuntelija + toimii (15 min)
   - lisää kuuntelijoita, tiedoston haku + tulosten tyhjentäminen 
     toiminnallisiksi, kuuntelijat omaan pakkaukseen (1 h)
+  - loput kuuntelijat, komentoja muutettu toimimaan graafisen 
+    käyttiksen kanssa: versio 1 ohjelmasta toimii, ei kovin testattu 
+    vielä (1 h)

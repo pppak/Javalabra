@@ -16,7 +16,6 @@ public class HankiTiedosto extends Komento {
         this.tiedosto = tiedosto;
     }
 
-    @Override
     public void suorita() {
         try {
             this.lukija = new Lukija(tiedosto);

@@ -40,6 +40,7 @@ public class TiedostoKuuntelija implements ActionListener {
         HankiTiedosto ks = new HankiTiedosto(teksti, lukija, file);
         ks.suorita();
         
+        tulo.addTeksti("*Uusi tiedosto valittu!* \n");
         tulo.addTeksti("Valittu tiedosto: " + tiedVal.getName(file) + "\n");
         tulo.addTeksti("Tekstin sanamäärä: " + this.teksti.getSanamaara() + "\n");
     }

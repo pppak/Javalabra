@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import minikong.domain.TekstinTiedot;
+import minikong.kayttoliittyma.kuuntelijat.HaeKuuntelija;
 import minikong.kayttoliittyma.kuuntelijat.OhjeKuuntelija;
 import minikong.kayttoliittyma.kuuntelijat.PoistoNappiKuuntelija;
 import minikong.kayttoliittyma.kuuntelijat.TiedostoKuuntelija;
@@ -57,12 +58,19 @@ public class Paaikkuna implements Runnable{
         c.anchor = GridBagConstraints.FIRST_LINE_END;        
         container.add(ohje, c);
                 
+        TulosLaatikko tulo = new TulosLaatikko();
+        c = new GridBagConstraints();
+        c.gridy = 3;
+        container.add(tulo.getLaatikko(), c);
+        
         JPanel sanahaku = new JPanel();
         sanahaku.setLayout(new GridBagLayout());
         JLabel hakuTeksti = new JLabel("Haettava sana: ");
         JTextField hakukentta = new JTextField(20);
         JButton hakuNappi = new JButton("Hae");
-        
+        HaeKuuntelija hk = new HaeKuuntelija(hakukentta, this.teksti, tulo);
+        hakuNappi.addActionListener(hk);
+        hakukentta.addActionListener(hk);
         sanahaku.add(hakuTeksti);
         sanahaku.add(hakukentta);
         sanahaku.add(hakuNappi);
@@ -72,10 +80,6 @@ public class Paaikkuna implements Runnable{
         c.insets = new Insets(0, 0, 5, 0);
         container.add(sanahaku, c);
         
-        TulosLaatikko tulo = new TulosLaatikko();
-        c = new GridBagConstraints();
-        c.gridy = 3;
-        container.add(tulo.getLaatikko(), c);
         
         JButton tiedosto = new JButton("Valitse tekstitiedosto...");
         TiedostoKuuntelija tied = new TiedostoKuuntelija(lukija, teksti, this.getFrame(), tulo);

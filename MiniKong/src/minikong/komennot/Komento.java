@@ -18,6 +18,4 @@ public abstract class Komento {
         this.teksti = teksti;
     }
     
-    public abstract void suorita();
-    
 }
