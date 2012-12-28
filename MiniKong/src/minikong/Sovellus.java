@@ -1,7 +1,6 @@
 package minikong;
 
 import java.util.HashMap;
-import java.util.Scanner;
 import javax.swing.SwingUtilities;
 import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.Paaikkuna;
@@ -21,7 +20,7 @@ public class Sovellus {
     
     public void suorita() {
         //korvataan myöhemmin GUI:lla yms
-        Paaikkuna GUI = new Paaikkuna(this.teksti);
+        Paaikkuna GUI = new Paaikkuna(this.teksti, this.lukija);
         SwingUtilities.invokeLater(GUI);
     }
  

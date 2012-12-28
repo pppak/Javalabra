@@ -14,14 +14,17 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import minikong.domain.TekstinTiedot;
+import minikong.util.Lukija;
 
 public class Paaikkuna implements Runnable{
     
     private JFrame frame;
     private TekstinTiedot teksti;
+    private Lukija lukija;
 
-    public Paaikkuna(TekstinTiedot teksti) {
-        this.teksti = teksti;
+    public Paaikkuna(TekstinTiedot t, Lukija l) {
+        this.teksti = t;
+        this.lukija = l;
     }
     
     
@@ -47,6 +50,8 @@ public class Paaikkuna implements Runnable{
         container.setLayout(new GridBagLayout());
         
         JButton ohje = new JButton("Ohje");
+        OhjeKuuntelija ok = new OhjeKuuntelija();
+        ohje.addActionListener(ok);
         GridBagConstraints c = new GridBagConstraints();
         c.anchor = GridBagConstraints.FIRST_LINE_END;        
         container.add(ohje, c);

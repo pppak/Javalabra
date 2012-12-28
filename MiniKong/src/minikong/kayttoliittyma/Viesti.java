@@ -39,7 +39,8 @@ public class Viesti implements Runnable{
         c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
         JLabel info = new JLabel(this.tekstiBody);
         JButton finito = new JButton("OK");
-        //kuuntelija joka sulkee napista
+        
+        finito.addActionListener(new SulkunappiKuuntelija(this.frame));
         
         c.add(info);
         c.add(finito);
