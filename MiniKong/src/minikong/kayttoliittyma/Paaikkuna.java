@@ -9,11 +9,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import minikong.domain.TekstinTiedot;
+import minikong.kayttoliittyma.kuuntelijat.OhjeKuuntelija;
+import minikong.kayttoliittyma.kuuntelijat.PoistoNappiKuuntelija;
+import minikong.kayttoliittyma.kuuntelijat.TiedostoKuuntelija;
 import minikong.util.Lukija;
 
 public class Paaikkuna implements Runnable{
@@ -55,23 +56,13 @@ public class Paaikkuna implements Runnable{
         GridBagConstraints c = new GridBagConstraints();
         c.anchor = GridBagConstraints.FIRST_LINE_END;        
         container.add(ohje, c);
-        
-        JButton tiedosto = new JButton("Valitse tekstitiedosto...");
-        c = new GridBagConstraints();
-        c.gridy = 1;
-        c.insets = new Insets(10, -10, 5, 10);
-        container.add(tiedosto, c);
-        
-        //kuuntelijat
-        //JFileChooser tiedVal = new JFileChooser();
-        //tiedVal.setFileFilter(new FileNameExtensionFilter("Tekstitiedostot", "txt"));
-        
-        
+                
         JPanel sanahaku = new JPanel();
         sanahaku.setLayout(new GridBagLayout());
         JLabel hakuTeksti = new JLabel("Haettava sana: ");
         JTextField hakukentta = new JTextField(20);
         JButton hakuNappi = new JButton("Hae");
+        
         sanahaku.add(hakuTeksti);
         sanahaku.add(hakukentta);
         sanahaku.add(hakuNappi);
@@ -81,15 +72,22 @@ public class Paaikkuna implements Runnable{
         c.insets = new Insets(0, 0, 5, 0);
         container.add(sanahaku, c);
         
-        JTextArea tulokset = new JTextArea();
-        tulokset.setEditable(false);
-        JScrollPane tulo2 = new JScrollPane(tulokset);
-        tulo2.setPreferredSize(new Dimension(450, 300));
+        TulosLaatikko tulo = new TulosLaatikko();
         c = new GridBagConstraints();
         c.gridy = 3;
-        container.add(tulo2, c);
+        container.add(tulo.getLaatikko(), c);
+        
+        JButton tiedosto = new JButton("Valitse tekstitiedosto...");
+        TiedostoKuuntelija tied = new TiedostoKuuntelija(lukija, teksti, this.getFrame(), tulo);
+        tiedosto.addActionListener(tied);
+        c = new GridBagConstraints();
+        c.gridy = 1;
+        c.insets = new Insets(10, -10, 5, 10);
+        container.add(tiedosto, c);
         
         JButton clear = new JButton("Poista tulokset");
+        PoistoNappiKuuntelija pnk = new PoistoNappiKuuntelija(tulo);
+        clear.addActionListener(pnk);
         c = new GridBagConstraints();
         c.anchor = GridBagConstraints.PAGE_END;
         c.gridy = 4;

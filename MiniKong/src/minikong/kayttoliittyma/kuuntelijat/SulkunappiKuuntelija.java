@@ -1,10 +1,10 @@
-package minikong.kayttoliittyma;
+package minikong.kayttoliittyma.kuuntelijat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
-class SulkunappiKuuntelija implements ActionListener {
+public class SulkunappiKuuntelija implements ActionListener {
 
     private JFrame f;
     

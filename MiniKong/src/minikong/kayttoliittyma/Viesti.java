@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
+import minikong.kayttoliittyma.kuuntelijat.SulkunappiKuuntelija;
 
 public class Viesti implements Runnable{
     

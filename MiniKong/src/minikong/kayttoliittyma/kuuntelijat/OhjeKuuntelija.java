@@ -1,9 +1,10 @@
-package minikong.kayttoliittyma;
+package minikong.kayttoliittyma.kuuntelijat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import minikong.kayttoliittyma.Viesti;
 
-class OhjeKuuntelija implements ActionListener{
+public class OhjeKuuntelija implements ActionListener{
 
     Viesti ohjeViesti;
 
