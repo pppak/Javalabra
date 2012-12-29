@@ -6,27 +6,21 @@ import java.util.Scanner;
 
 public class Lukija {
     
-    private Scanner luk;
-
-    public Lukija() {
-        this.luk = new Scanner("");
-    }
+    private Scanner lukija;
 
     public Lukija(File tiedosto) throws FileNotFoundException {
-        this.luk = new Scanner(tiedosto);
+        this.lukija = new Scanner(tiedosto);
     }
     
     public String seuraavaSana() {
-        return this.luk.next();
+        return this.lukija.next();
     }
     
     public void tiedostoValmis(){
-        this.luk.close();
+        this.lukija.close();
     }
     
     public boolean onkoSeuraava() {
-        return this.luk.hasNext();
-    }
-    
-    
+        return this.lukija.hasNext();
+    }   
 }

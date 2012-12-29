@@ -1,7 +1,7 @@
 package minikong.kayttoliittyma;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,14 +37,12 @@ public class Viesti implements Runnable{
     }
 
     private void teeKomponentit(Container c) {
-        c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
         JLabel info = new JLabel(this.tekstiBody);
         JButton finito = new JButton("OK");
         
         finito.addActionListener(new SulkunappiKuuntelija(this.frame));
         
-        c.add(info);
-        c.add(finito);
+        c.add(info, BorderLayout.CENTER);
+        c.add(finito, BorderLayout.SOUTH);
     }
-    
 }

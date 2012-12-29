@@ -1,36 +1,19 @@
 package minikong.kayttoliittyma;
 
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
+import java.awt.*;
+import javax.swing.*;
 import minikong.domain.TekstinTiedot;
-import minikong.kayttoliittyma.kuuntelijat.HaeKuuntelija;
-import minikong.kayttoliittyma.kuuntelijat.OhjeKuuntelija;
-import minikong.kayttoliittyma.kuuntelijat.PoistoNappiKuuntelija;
-import minikong.kayttoliittyma.kuuntelijat.TiedostoKuuntelija;
-import minikong.util.Lukija;
+import minikong.kayttoliittyma.kuuntelijat.*;
 
 public class Paaikkuna implements Runnable{
     
     private JFrame frame;
     private TekstinTiedot teksti;
-    private Lukija lukija;
-
-    public Paaikkuna(TekstinTiedot t, Lukija l) {
+    
+    public Paaikkuna(TekstinTiedot t) {
         this.teksti = t;
-        this.lukija = l;
     }
     
-    
-
     @Override
     public void run() {
         frame = new JFrame();
@@ -50,19 +33,30 @@ public class Paaikkuna implements Runnable{
 
     private void teeKomponentit(Container container) {
         container.setLayout(new GridBagLayout());
-        
-        JButton ohje = new JButton("Ohje");
-        OhjeKuuntelija ok = new OhjeKuuntelija();
-        ohje.addActionListener(ok);
-        GridBagConstraints c = new GridBagConstraints();
-        c.anchor = GridBagConstraints.FIRST_LINE_END;        
-        container.add(ohje, c);
+
+        teeOhjenappi(container, new GridBagConstraints());
                 
         TulosLaatikko tulo = new TulosLaatikko();
-        c = new GridBagConstraints();
+        GridBagConstraints c = new GridBagConstraints();
         c.gridy = 3;
         container.add(tulo.getLaatikko(), c);
         
+        teeSananHaku(tulo, container, new GridBagConstraints());
+    
+        teeTiedostonValinta(tulo, container, new GridBagConstraints());
+        
+        teePoistonappi(tulo, container, new GridBagConstraints());        
+    }    
+
+    private void teeOhjenappi(Container container, GridBagConstraints c) {
+        JButton ohje = new JButton("Ohje");
+        OhjeKuuntelija ok = new OhjeKuuntelija();
+        ohje.addActionListener(ok);
+        c.anchor = GridBagConstraints.FIRST_LINE_END;        
+        container.add(ohje, c);
+    }
+
+    private void teeSananHaku(TulosLaatikko tulo, Container container, GridBagConstraints c) {
         JPanel sanahaku = new JPanel();
         sanahaku.setLayout(new GridBagLayout());
         JLabel hakuTeksti = new JLabel("Haettava sana: ");
@@ -74,29 +68,27 @@ public class Paaikkuna implements Runnable{
         sanahaku.add(hakuTeksti);
         sanahaku.add(hakukentta);
         sanahaku.add(hakuNappi);
-        c = new GridBagConstraints();
         c.anchor = GridBagConstraints.FIRST_LINE_START;
         c.gridy = 2;
         c.insets = new Insets(0, 0, 5, 0);
         container.add(sanahaku, c);
-        
-        
+    }
+
+    private void teeTiedostonValinta(TulosLaatikko tulo, Container container, GridBagConstraints c) {
         JButton tiedosto = new JButton("Valitse tekstitiedosto...");
-        TiedostoKuuntelija tied = new TiedostoKuuntelija(lukija, teksti, this.getFrame(), tulo);
+        TiedostoKuuntelija tied = new TiedostoKuuntelija(teksti, this.getFrame(), tulo);
         tiedosto.addActionListener(tied);
-        c = new GridBagConstraints();
         c.gridy = 1;
         c.insets = new Insets(10, -10, 5, 10);
         container.add(tiedosto, c);
-        
+    }
+
+    private void teePoistonappi(TulosLaatikko tulo, Container container, GridBagConstraints c) {
         JButton clear = new JButton("Poista tulokset");
-        PoistoNappiKuuntelija pnk = new PoistoNappiKuuntelija(tulo);
+        PoistonappiKuuntelija pnk = new PoistonappiKuuntelija(tulo);
         clear.addActionListener(pnk);
-        c = new GridBagConstraints();
         c.anchor = GridBagConstraints.PAGE_END;
         c.gridy = 4;
         container.add(clear, c);
-        
     }
-    
 }

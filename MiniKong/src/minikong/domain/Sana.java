@@ -1,15 +1,15 @@
 package minikong.domain;
 
-public abstract class Sana{
+public class Sana implements Comparable<Sana> {
 
     private String sana;
     private int esiintymisMaara;
-    
+
     public Sana(String sana) {
         this.sana = sana;
         this.esiintymisMaara = 1;
     }
-    
+
     public void sanaEsiintyy() {
         this.esiintymisMaara++;
     }
@@ -21,5 +21,15 @@ public abstract class Sana{
     public int getEsiintymisMaara() {
         return esiintymisMaara;
     }
-    
+
+    @Override
+    public int compareTo(Sana e) {
+        if (this.getEsiintymisMaara() == e.getEsiintymisMaara()) {
+            return 0;
+        } else if (this.getEsiintymisMaara() > e.getEsiintymisMaara()) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
 }

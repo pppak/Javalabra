@@ -3,7 +3,7 @@ package minikong.domain;
 import java.util.TreeMap;
 
 public class TekstinTiedot {
-    
+
     private int sanamaara;
     private TreeMap<String, SananNaapurit> sanojenNaapurit;
 
@@ -11,7 +11,7 @@ public class TekstinTiedot {
         this.sanojenNaapurit = new TreeMap();
         this.sanamaara = 0;
     }
-    
+
     public boolean sanaListattu(String sana) {
         if (this.sanojenNaapurit.containsKey(sana)) {
             return true;
@@ -26,22 +26,20 @@ public class TekstinTiedot {
     public int getSanamaara() {
         return sanamaara;
     }
-    
-    public SananNaapurit getSana(String sana) {
+
+    public SananNaapurit getSananNaapurit(String sana) {
         return this.sanojenNaapurit.get(sana);
     }
-    
-    public void lisaaUusiSana(String sana){
+
+    public void lisaaUusiSana(String sana) {
         this.sanojenNaapurit.put(sana, new SananNaapurit(sana));
     }
-    
-    public void lisaaNaapuri(String sana, String naapuri, Boolean vasenVai) {
-        if (vasenVai) {
+
+    public void lisaaNaapuri(String sana, String naapuri, Boolean vasen) {
+        if (vasen) {
             this.sanojenNaapurit.get(sana).lisaaVasen(naapuri);
         } else {
             this.sanojenNaapurit.get(sana).lisaaOikea(naapuri);
         }
     }
-    
-    
 }

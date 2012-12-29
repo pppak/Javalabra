@@ -21,13 +21,13 @@ public class SananNaapuritTest {
     @Test
     public void oikeaLisataan() {
         n.lisaaOikea("banaani");
-        assertEquals(n.getSuurin(false), "banaani");
+        assertEquals("banaani", n.getSuurin(false).getSana());
     }
     
     @Test
     public void vasenLisataan() {
         n.lisaaVasen("omena");
-        assertEquals(n.getSuurin(true), "omena");
+        assertEquals("omena", n.getSuurin(true).getSana());
     }
     
     @Test
@@ -35,7 +35,7 @@ public class SananNaapuritTest {
         n.lisaaOikea("kissa");
         n.lisaaOikea("kommari");
         n.lisaaOikea("kissa");
-        assertEquals(n.getSuurin(false), "kissa");
+        assertEquals("kissa", n.getSuurin(false).getSana());
     }
     
     @Test
@@ -43,7 +43,6 @@ public class SananNaapuritTest {
         n.lisaaVasen("koira");
         n.lisaaVasen("kapitalisti");
         n.lisaaVasen("koira");
-        assertEquals(n.getSuurin(true), "koira");
+        assertEquals("koira", n.getSuurin(true).getSana());
     }
-    
 }

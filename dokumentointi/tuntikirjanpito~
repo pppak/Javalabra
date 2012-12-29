@@ -48,3 +48,4 @@
   - loput kuuntelijat, komentoja muutettu toimimaan graafisen 
     käyttiksen kanssa: versio 1 ohjelmasta toimii, ei kovin testattu 
     vielä (1 h)
+  - jotain refaktoroitu, sanamäärien tulostus lisätty (1-2 h)

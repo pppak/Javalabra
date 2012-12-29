@@ -16,54 +16,53 @@ public class TekstinTiedotTest {
     public TekstinTiedotTest() {
         this.testeri = new TekstinTiedot();
     }
-    
+
     @Before
     public void setUp() {
-        TekstinKasittelija tk = new TekstinKasittelija(testeri, new Lukija());
+        TekstinKasittelija tk = null;
         try {
             tk = new TekstinKasittelija(testeri, new Lukija(t));
         } catch (FileNotFoundException ex) {
         }
         this.testeri = tk.kasittele();
     }
-    
+
     @Test
-    public void sanatTyhjassa(){
+    public void sanatTyhjassa() {
         TekstinTiedot t = new TekstinTiedot();
         assertEquals(t.getSanamaara(), 0);
     }
-    
+
     @Test
-    public void sanamaara(){
+    public void sanamaara() {
         assertEquals(this.testeri.getSanamaara(), 12);
         this.testeri.plusSanamaara();
         assertEquals(this.testeri.getSanamaara(), 13);
     }
-    
-    @Test 
-    public void sanaLoytyy(){
+
+    @Test
+    public void sanaLoytyy() {
         assertTrue(testeri.sanaListattu("vihreä"));
     }
-    
+
     @Test
     public void sanaaEiLoydy() {
         assertFalse(testeri.sanaListattu("heppa"));
     }
-    
-    @Test 
+
+    @Test
     public void sananLisaaminen() {
         testeri.lisaaUusiSana("soossi");
         assertTrue(testeri.sanaListattu("soossi"));
         SananNaapurit testiN = new SananNaapurit("soossi");
-        assertEquals(testeri.getSana("soossi").getSana(), testiN.getSana());
-        assertEquals(testeri.getSana("soossi").getEsiintymisMaara(), testiN.getEsiintymisMaara());
+        assertEquals(testeri.getSananNaapurit("soossi").getSana(), testiN.getSana());
+        assertEquals(testeri.getSananNaapurit("soossi").getEsiintymisMaara(), testiN.getEsiintymisMaara());
     }
-    
+
     @Test
     public void sananNaapurinLisaaminen() {
         testeri.lisaaUusiSana("soossi");
         testeri.lisaaNaapuri("soossi", "simpukka", true);
-        assertEquals(testeri.getSana("soossi").getSuurin(true), "simpukka");
+        assertEquals("simpukka", testeri.getSananNaapurit("soossi").getSuurin(true).getSana());
     }
-    
 }

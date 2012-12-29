@@ -6,8 +6,8 @@ import java.util.HashMap;
 
 public class SananNaapurit extends Sana{
     
-    private HashMap<String, SananEsiintyma> vasen;
-    private HashMap<String, SananEsiintyma> oikea;
+    private HashMap<String, Sana> vasen;
+    private HashMap<String, Sana> oikea;
 
     public SananNaapurit(String sana) {
         super(sana);
@@ -15,8 +15,8 @@ public class SananNaapurit extends Sana{
         this.oikea = new HashMap();
     }
     
-    public SananEsiintyma getSuurin(Boolean onkoVasen) {
-        ArrayList<SananEsiintyma> jarjestettavaLista = new ArrayList();
+    public Sana getSuurin(Boolean onkoVasen) {
+        ArrayList<Sana> jarjestettavaLista = new ArrayList();
         if (onkoVasen) {
             jarjestettavaLista.addAll(vasen.values());
         } else {
@@ -31,22 +31,21 @@ public class SananNaapurit extends Sana{
     
     public void lisaaVasen(String v) {
         if (this.vasen.containsKey(v)) {
-            SananEsiintyma es = this.vasen.get(v);
+            Sana es = this.vasen.get(v);
             es.sanaEsiintyy();
             this.vasen.put(v, es);
         } else {
-            this.vasen.put(v, new SananEsiintyma(v));
+            this.vasen.put(v, new Sana(v));
         }
     }
     
     public void lisaaOikea(String o) {
         if (this.oikea.containsKey(o)) {
-            SananEsiintyma es = this.oikea.get(o);
+            Sana es = this.oikea.get(o);
             es.sanaEsiintyy();
             this.oikea.put(o, es);
         } else {
-            this.oikea.put(o, new SananEsiintyma(o));
+            this.oikea.put(o, new Sana(o));
         }
     }
-    
 }

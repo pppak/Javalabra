@@ -4,13 +4,13 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SananEsiintymaTest {
+public class SanaTest {
 
-    private SananEsiintyma s;
+    private Sana s;
 
     @Before
     public void setUp() {
-        s = new SananEsiintyma("sana");
+        s = new Sana("sana");
     }
 
     @Test
@@ -27,21 +27,10 @@ public class SananEsiintymaTest {
     
     @Test
     public void sanatVertaillaan(){
-        SananEsiintyma s2 = new SananEsiintyma("apua");
+        Sana s2 = new Sana("apua");
         s2.sanaEsiintyy();
         assertEquals(s.compareTo(s2), 1);
         s.sanaEsiintyy();
         assertEquals(s.compareTo(s2), 0);
-    }
-    
-    @Test
-    public void sanaTrimmataan(){
-        SananEsiintyma s2 = new SananEsiintyma("\"kääkkä\'");
-        assertEquals(s2.getSana(), "kääkkä");
-        SananEsiintyma s3 = new SananEsiintyma("g.");
-        assertEquals(s3.getSana(), "g");
-        SananEsiintyma s4 = new SananEsiintyma("l,");
-        assertEquals(s4.getSana(), "l");
-    }
-    
+    }    
 }

@@ -33,9 +33,10 @@ public class TekstinKasittelija {
                 teksti.lisaaNaapuri(nykyinen, edellinen, true);
             }
 
-            teksti.getSana(nykyinen).sanaEsiintyy();
+            teksti.getSananNaapurit(nykyinen).sanaEsiintyy();
             edellinen = nykyinen;
         }
+        
         lukija.tiedostoValmis();
         return teksti;
     }

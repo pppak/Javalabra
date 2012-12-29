@@ -10,9 +10,8 @@ public class HankiTiedosto extends Komento {
     private Lukija lukija;
     private File tiedosto;
     
-    public HankiTiedosto(TekstinTiedot t, Lukija l, File tiedosto) {
+    public HankiTiedosto(TekstinTiedot t, File tiedosto) {
         super(t);
-        this.lukija = l;
         this.tiedosto = tiedosto;
     }
 
