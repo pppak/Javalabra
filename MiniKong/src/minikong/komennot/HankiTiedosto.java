@@ -6,21 +6,17 @@ import minikong.util.Lukija;
 import minikong.util.TekstinKasittelija;
 
 public class HankiTiedosto extends Komento {
-    
+
     private Lukija lukija;
     private File tiedosto;
-    
+
     public HankiTiedosto(TekstinTiedot t, File tiedosto) {
         super(t);
         this.tiedosto = tiedosto;
     }
 
     public void suorita() {
-        try {
-            this.lukija = new Lukija(tiedosto);
-        } catch (Exception e) {
-            return;
-        }
+        this.lukija = new Lukija(tiedosto);
 
         TekstinKasittelija parser = new TekstinKasittelija(super.getTeksti(), lukija);
         super.setTeksti(parser.kasittele());

@@ -19,11 +19,7 @@ public class TekstinTiedotTest {
 
     @Before
     public void setUp() {
-        TekstinKasittelija tk = null;
-        try {
-            tk = new TekstinKasittelija(testeri, new Lukija(t));
-        } catch (FileNotFoundException ex) {
-        }
+        TekstinKasittelija tk = new TekstinKasittelija(testeri, new Lukija(t));
         this.testeri = tk.kasittele();
     }
 

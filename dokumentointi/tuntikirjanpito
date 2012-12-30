@@ -51,3 +51,9 @@
   - jotain refaktoroitu, sanamäärien tulostus lisätty (1-2 h)
 29.12
   - koodia siistitty, hajonneet testit korjattu (3 h)
+  - testiluokka tekstin käsittelylle luotu, pakkauksia muille (30 min)
+30.12
+  - materiaalia vilkaistu testaamiseen yms. liittyen (5 min)
+  - HaeNaapuritTest tehty, olemattoman naapurin nullpointerE hoidettu 
+    (40 min)
+  - lisää testejä (30 min)
