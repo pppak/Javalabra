@@ -2,13 +2,13 @@ package minikong.kayttoliittyma.kuuntelijat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import minikong.kayttoliittyma.TulosLaatikko;
+import minikong.kayttoliittyma.Tuloslaatikko;
 
 public class PoistonappiKuuntelija implements ActionListener{
 
-    private TulosLaatikko tulo;
+    private Tuloslaatikko tulo;
     
-    public PoistonappiKuuntelija(TulosLaatikko tulo) {
+    public PoistonappiKuuntelija(Tuloslaatikko tulo) {
         this.tulo = tulo;
     }
 

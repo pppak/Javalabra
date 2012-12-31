@@ -5,12 +5,12 @@ import java.awt.Dimension;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class TulosLaatikko {
+public class Tuloslaatikko {
 
     private JScrollPane loota;
     private JTextArea tulokset;
 
-    public TulosLaatikko() {
+    public Tuloslaatikko() {
         tulokset = new JTextArea();
         tulokset.setEditable(false);
         loota = new JScrollPane(tulokset);

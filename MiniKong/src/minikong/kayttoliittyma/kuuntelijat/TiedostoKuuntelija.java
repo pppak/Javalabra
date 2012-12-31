@@ -7,16 +7,16 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import minikong.domain.TekstinTiedot;
-import minikong.kayttoliittyma.TulosLaatikko;
+import minikong.kayttoliittyma.Tuloslaatikko;
 import minikong.komennot.HankiTiedosto;
 
 public class TiedostoKuuntelija implements ActionListener {
 
     private TekstinTiedot teksti;
     private JFrame frame;
-    private TulosLaatikko tulo;
+    private Tuloslaatikko tulo;
 
-    public TiedostoKuuntelija(TekstinTiedot teksti, JFrame frame, TulosLaatikko tulo) {
+    public TiedostoKuuntelija(TekstinTiedot teksti, JFrame frame, Tuloslaatikko tulo) {
         this.teksti = teksti;
         this.frame = frame;
         this.tulo = tulo;

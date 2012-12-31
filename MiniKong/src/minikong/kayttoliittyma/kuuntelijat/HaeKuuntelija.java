@@ -4,17 +4,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import minikong.domain.TekstinTiedot;
-import minikong.kayttoliittyma.TulosLaatikko;
+import minikong.kayttoliittyma.Tuloslaatikko;
 import minikong.komennot.HaeNaapuri;
 
 public class HaeKuuntelija implements ActionListener{
 
     private JTextField sana;
     private TekstinTiedot teksti;
-    private TulosLaatikko tulos;
+    private Tuloslaatikko tulos;
     
-    public HaeKuuntelija(JTextField hakukentta, TekstinTiedot teksti, TulosLaatikko tulos) {
-        this.sana = hakukentta;
+    public HaeKuuntelija(TekstinTiedot teksti, Tuloslaatikko tulos) {
+        this.sana = null;
         this.teksti = teksti;
         this.tulos = tulos;
     }
@@ -40,5 +40,9 @@ public class HaeKuuntelija implements ActionListener{
         tulos.addTeksti("Yleisin naapurisana vasemmalla: " + haku.getVasen(sana.getText()) + "\n");
         tulos.addTeksti("Yleisin naapurisana oikealla: " + haku.getOikea(sana.getText()) + "\n"); 
         tulos.addTeksti("***\n");
+    }
+    
+    public void setHakukentta(JTextField hakukentta){
+        this.sana = hakukentta;
     }
 }
