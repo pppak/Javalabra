@@ -30,10 +30,21 @@ public class HankiTiedostoTest {
     }
     
     @Test
-    public void suoritaMuuttaaTekstia(){
+    public void suoritaLuoSananNaapuritOlion(){
         ht.suorita();
         assertNotNull(ht.getTeksti().getSananNaapurit("vihreä"));
+    }
+    
+    @Test
+    public void suoritaLisaaSanoja(){
+        ht.suorita();
         assertTrue(ht.getTeksti().sanaListattu("vihreä"));
+    }
+    
+    @Test
+    public void suoritaLisaaSanamaaraa(){
+        ht.suorita();
         assertFalse(ht.getTeksti().getSanamaara() == 0);
+ 
     }
 }

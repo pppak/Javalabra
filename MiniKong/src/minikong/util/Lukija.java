@@ -12,6 +12,7 @@ public class Lukija {
         try {
             this.lukija = new Scanner(tiedosto);
         } catch (FileNotFoundException ex) {
+            
         }
     }
 

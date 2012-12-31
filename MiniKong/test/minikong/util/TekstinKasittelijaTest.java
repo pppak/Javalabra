@@ -3,21 +3,56 @@ package minikong.util;
 import java.io.File;
 import minikong.domain.TekstinTiedot;
 import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 
 public class TekstinKasittelijaTest {
+
+    TekstinTiedot tt;
+    TekstinKasittelija tk;
     
-    public TekstinKasittelijaTest() {
+    @Before
+    public void setUp(){
+        File testiTeksti = new File("testiT.txt");
+        Lukija lukija = new Lukija(testiTeksti);
+        tt = new TekstinTiedot();
+        tk = new TekstinKasittelija(tt, lukija);
     }
     
     @Test
-    public void tekstinKasittely(){
-        File testiTeksti = new File("testiT.txt");
-        Lukija lukija = new Lukija(testiTeksti);
-        TekstinTiedot tt = new TekstinTiedot();
-        TekstinKasittelija tk = new TekstinKasittelija(tt, lukija);
+    public void konstruktoriEiKoskeTekstiin(){
+        assertNull(tt.getSananNaapurit("sana"));
+        assertEquals(tt.getSanamaara(), 0);
+        assertFalse(tt.sanaListattu(""));
+    }
+    
+    @Test
+    public void kasittelijaEiLisaaOlemattomia(){
         tk.kasittele();
-        assertNotNull(tt);
+        assertFalse(tt.sanaListattu(""));
+    }
+    
+    @Test
+    public void kasittelijaLisaaSanat(){
+        tk.kasittele();
         assertTrue(tt.sanaListattu("vihreä"));
+    }
+    
+    @Test
+    public void kasittelijaLisaaNaapurin(){
+        tk.kasittele();
+        assertNotNull(tt.getSananNaapurit("on"));
+    }
+    
+    @Test
+    public void kasittelijaEiLisaaOlematontaNaapuria(){
+        tk.kasittele();
+        assertNull(tt.getSananNaapurit(""));
+    }
+    
+    @Test
+    public void kasittelijaLaskeeSanamaaran(){
+        tk.kasittele();
+        assertEquals(tt.getSanamaara(), 12);
     }
 }

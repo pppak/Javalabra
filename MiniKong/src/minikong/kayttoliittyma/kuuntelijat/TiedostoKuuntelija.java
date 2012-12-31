@@ -34,6 +34,12 @@ public class TiedostoKuuntelija implements ActionListener {
         }
         
         File file = tiedVal.getSelectedFile();
+        
+        if (!file.exists()) {
+            tulo.addTeksti("Tiedostoa ei löydy.");
+            return;
+        }
+        
         HankiTiedosto tiedostonKasittely = new HankiTiedosto(teksti, file);
         tiedostonKasittely.suorita();
         

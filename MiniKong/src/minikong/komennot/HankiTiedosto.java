@@ -17,7 +17,7 @@ public class HankiTiedosto extends Komento {
 
     public void suorita() {
         this.lukija = new Lukija(tiedosto);
-
+        
         TekstinKasittelija parser = new TekstinKasittelija(super.getTeksti(), lukija);
         super.setTeksti(parser.kasittele());
 

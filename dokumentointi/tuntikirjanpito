@@ -57,3 +57,7 @@
   - HaeNaapuritTest tehty, olemattoman naapurin nullpointerE hoidettu 
     (40 min)
   - lisää testejä (30 min)
+31.12
+  - testejä (40 min)
+  - nullpointerE lukijan kanssa löydetty, korjattu (15 min)
+  - lukijalle testiluokka (10 min)
