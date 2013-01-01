@@ -5,16 +5,17 @@ import java.awt.Dimension;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class Tuloslaatikko {
+public class Tuloslaatikko extends Komponentti {
 
-    private JScrollPane loota;
+    private JScrollPane laatikko;
     private JTextArea tulokset;
 
     public Tuloslaatikko() {
+        super();
         tulokset = new JTextArea();
         tulokset.setEditable(false);
-        loota = new JScrollPane(tulokset);
-        loota.setPreferredSize(new Dimension(450, 300));
+        laatikko = new JScrollPane(tulokset);
+        laatikko.setPreferredSize(new Dimension(450, 300));
     }
 
     public void addTeksti(String tulos) {
@@ -26,6 +27,16 @@ public class Tuloslaatikko {
     }
 
     public Component getLaatikko() {
-        return loota;
+        return laatikko;
+    }
+
+    @Override
+    void asetaRuutuun() {
+        super.getGbc().gridy = 3;
+    }
+
+    @Override
+    void teeKomponentit() {
+        super.getOsa().add(this.laatikko);
     }
 }

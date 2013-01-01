@@ -1,9 +1,9 @@
 package minikong.kayttoliittyma;
 
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import minikong.domain.TekstinTiedot;
-import minikong.kayttoliittyma.kuuntelijat.*;
 
 public class Paaikkuna implements Runnable {
 
@@ -27,24 +27,34 @@ public class Paaikkuna implements Runnable {
         frame.setVisible(true);
     }
 
-    public JFrame getFrame() {
-        return frame;
-    }
-
     private void teeKomponentit(Container container) {
         container.setLayout(new GridBagLayout());
-
-        Ohjenappi ohje = new Ohjenappi(container, new GridBagConstraints());
-
+        
+        ArrayList<Komponentti> osat = new ArrayList();
         Tuloslaatikko tulo = new Tuloslaatikko();
-        GridBagConstraints c = new GridBagConstraints();
-        c.gridy = 3;
-        container.add(tulo.getLaatikko(), c);
+        osat.add(tulo);
+        
+        Poisto poisto = new Poisto(tulo);
+        osat.add(poisto);
+        
+        Ohjenappi ohje = new Ohjenappi();
+        osat.add(ohje);
+        
+        Sanahaku sanahaku = new Sanahaku(tulo, this.teksti);
+        osat.add(sanahaku);
+        
+        TiedostonValinta tiedval = new TiedostonValinta(tulo, this.frame, this.teksti);
+        osat.add(tiedval);
+        
+        lisaaIkkunaan(osat, container);
+        
+    }
 
-        Sanahaku sanahaku = new Sanahaku(tulo, container, new GridBagConstraints(), new HaeKuuntelija(this.teksti, tulo));
-
-        TiedostonValinta tiedval = new TiedostonValinta(tulo, container, new GridBagConstraints(), this.getFrame(), this.teksti);
-
-        Poisto poisto = new Poisto(tulo, container, new GridBagConstraints());
+    private void lisaaIkkunaan(ArrayList<Komponentti> osat, Container container) {
+        for (Komponentti komponentti : osat) {
+            komponentti.asetaRuutuun();
+            komponentti.teeKomponentit();
+            container.add(komponentti.getOsa(), komponentti.getGbc());
+        }
     }
 }

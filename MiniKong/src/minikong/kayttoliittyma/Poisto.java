@@ -1,34 +1,33 @@
 package minikong.kayttoliittyma;
 
-import java.awt.Container;
 import java.awt.GridBagConstraints;
 import javax.swing.JButton;
 import minikong.kayttoliittyma.kuuntelijat.PoistonappiKuuntelija;
 
-public class Poisto {
+public class Poisto extends Komponentti{
 
-    Poisto(Tuloslaatikko tulo, Container container, GridBagConstraints gbc) {
-        lisaaIkkunaan(teeKomponentit(tulo), asennaRuutuun(gbc), container);
+    private Tuloslaatikko tulo;
+    
+    Poisto(Tuloslaatikko tulo) {
+        super();
+        this.tulo = tulo;
     }
 
-    private JButton teeKomponentit(Tuloslaatikko tulo) {
-        JButton clear = new JButton("Poista tulokset");
-        lisaaKuuntelija(clear, tulo);
-        return clear;
-    }
-
-    private void lisaaKuuntelija(JButton clear, Tuloslaatikko tulo) {
+    private void lisaaKuuntelija(JButton poisto) {
         PoistonappiKuuntelija pnk = new PoistonappiKuuntelija(tulo);
-        clear.addActionListener(pnk);
+        poisto.addActionListener(pnk);
     }
 
-    private GridBagConstraints asennaRuutuun(GridBagConstraints gbc) {
-        gbc.anchor = GridBagConstraints.PAGE_END;
-        gbc.gridy = 4;
-        return gbc;
+    @Override
+    public void asetaRuutuun() {
+        super.getGbc().anchor = GridBagConstraints.PAGE_END;
+        super.getGbc().gridy = 4;
     }
 
-    private void lisaaIkkunaan(JButton komp, GridBagConstraints c, Container container) {
-        container.add(komp, c);
+    @Override
+    public void teeKomponentit() {
+        JButton poisto = new JButton("Poista tulokset");
+        lisaaKuuntelija(poisto);
+        super.getOsa().add(poisto);
     }
 }

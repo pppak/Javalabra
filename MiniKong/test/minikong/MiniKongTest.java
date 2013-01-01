@@ -13,18 +13,15 @@ import org.junit.*;
 
 public class MiniKongTest {
 
-    private File testiT;
-
     private Sovellus s;
     
     @Before
     public void setUp() {
-        testiT = new File("testiT.txt");
         this.s = new Sovellus();
     }
 
     @Test
-    public void placeholder() {
+    public void mainKaynnistyy() {
         assertNotNull(s);
     }
 }

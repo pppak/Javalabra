@@ -1,38 +1,29 @@
 package minikong.kayttoliittyma;
 
-import java.awt.Container;
 import java.awt.GridBagConstraints;
 import javax.swing.JButton;
 import minikong.kayttoliittyma.kuuntelijat.OhjeKuuntelija;
 
-public class Ohjenappi {
-    
-    private Container container;
-    private GridBagConstraints gbc;
+public class Ohjenappi extends Komponentti {
 
-    Ohjenappi(Container container, GridBagConstraints gridBagConstraints) {
-        this.container = container;
-        gbc = gridBagConstraints;
-        asetaRuutuun();
-        teeKomponentit();
+    Ohjenappi() {
+        super();
     }
 
-    private void teeKomponentit() {
+    @Override
+    public void teeKomponentit() {
         JButton ohje = new JButton("Ohje");
         lisaaKuuntelijat(ohje);
+        super.getOsa().add(ohje);
     }
 
     private void lisaaKuuntelijat(JButton ohje) {
         OhjeKuuntelija ok = new OhjeKuuntelija();
         ohje.addActionListener(ok);
-        lisaaPaaikkunaan(ohje);
     }
 
-    private void asetaRuutuun() {
-        gbc.anchor = GridBagConstraints.FIRST_LINE_END;                
-    }
-
-    private void lisaaPaaikkunaan(JButton ohje) {
-        container.add(ohje, gbc);
+    @Override
+    public void asetaRuutuun() {
+        super.getGbc().anchor = GridBagConstraints.FIRST_LINE_END;
     }
 }
