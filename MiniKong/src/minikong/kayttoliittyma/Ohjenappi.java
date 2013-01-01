@@ -5,12 +5,12 @@ import java.awt.GridBagConstraints;
 import javax.swing.JButton;
 import minikong.kayttoliittyma.kuuntelijat.OhjeKuuntelija;
 
-public class Ohje {
+public class Ohjenappi {
     
     private Container container;
     private GridBagConstraints gbc;
 
-    Ohje(Container container, GridBagConstraints gridBagConstraints) {
+    Ohjenappi(Container container, GridBagConstraints gridBagConstraints) {
         this.container = container;
         gbc = gridBagConstraints;
         asetaRuutuun();

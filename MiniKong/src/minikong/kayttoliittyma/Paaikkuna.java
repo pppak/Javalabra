@@ -34,7 +34,7 @@ public class Paaikkuna implements Runnable {
     private void teeKomponentit(Container container) {
         container.setLayout(new GridBagLayout());
 
-        Ohje ohje = new Ohje(container, new GridBagConstraints());
+        Ohjenappi ohje = new Ohjenappi(container, new GridBagConstraints());
 
         Tuloslaatikko tulo = new Tuloslaatikko();
         GridBagConstraints c = new GridBagConstraints();
