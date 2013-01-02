@@ -1,5 +1,6 @@
 package minikong.util;
 
+import java.io.File;
 import minikong.domain.TekstinTiedot;
 
 public class TekstinKasittelija {
@@ -8,9 +9,9 @@ public class TekstinKasittelija {
     private Lukija lukija;
     private Siistija siistija;
 
-    public TekstinKasittelija(TekstinTiedot t, Lukija l) {
+    public TekstinKasittelija(TekstinTiedot t, File f) {
         this.teksti = t;
-        this.lukija = l;
+        this.lukija = new Lukija(f);
         this.siistija = new Siistija();
     }
 

@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.Tuloslaatikko;
-import minikong.komennot.HankiTiedosto;
+import minikong.util.TekstinKasittelija;
 
 public class TiedostoKuuntelija implements ActionListener {
 
@@ -40,8 +40,8 @@ public class TiedostoKuuntelija implements ActionListener {
             return;
         }
         
-        HankiTiedosto tiedostonKasittely = new HankiTiedosto(teksti, file);
-        tiedostonKasittely.suorita();
+        TekstinKasittelija parser = new TekstinKasittelija(this.teksti, file);
+        this.teksti = parser.kasittele();
         
         paivitaTulokset(tiedVal, file);        
     }

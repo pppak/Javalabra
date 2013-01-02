@@ -14,9 +14,8 @@ public class TekstinKasittelijaTest {
     @Before
     public void setUp(){
         File testiTeksti = new File("testiT.txt");
-        Lukija lukija = new Lukija(testiTeksti);
         tt = new TekstinTiedot();
-        tk = new TekstinKasittelija(tt, lukija);
+        tk = new TekstinKasittelija(tt, testiTeksti);
     }
     
     @Test

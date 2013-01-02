@@ -19,7 +19,7 @@ public class TekstinTiedotTest {
 
     @Before
     public void setUp() {
-        TekstinKasittelija tk = new TekstinKasittelija(testeri, new Lukija(t));
+        TekstinKasittelija tk = new TekstinKasittelija(testeri, t);
         this.testeri = tk.kasittele();
     }
 
