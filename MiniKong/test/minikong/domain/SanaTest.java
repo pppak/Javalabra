@@ -15,22 +15,22 @@ public class SanaTest {
 
     @Test
     public void sananEsiintymisMaaraOikein() {
-        assertEquals(s.getEsiintymisMaara(), 1);
+        assertEquals(1, s.getEsiintymisMaara());
         s.sanaEsiintyy();
-        assertEquals(s.getEsiintymisMaara(), 2);
+        assertEquals(2, s.getEsiintymisMaara());
     }
 
     @Test
     public void sanaTallennetaanOikein() {
-        assertEquals(s.getSana(), "sana");
+        assertEquals("sana", s.getSana());
     }
     
     @Test
     public void sanatVertaillaan(){
         Sana s2 = new Sana("apua");
         s2.sanaEsiintyy();
-        assertEquals(s.compareTo(s2), 1);
+        assertEquals(1, s.compareTo(s2));
         s.sanaEsiintyy();
-        assertEquals(s.compareTo(s2), 0);
+        assertEquals(0, s.compareTo(s2));
     }    
 }

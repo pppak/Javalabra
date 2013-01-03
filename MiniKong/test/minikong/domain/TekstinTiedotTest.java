@@ -1,8 +1,6 @@
 package minikong.domain;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import minikong.util.Lukija;
 import minikong.util.TekstinKasittelija;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -25,15 +23,21 @@ public class TekstinTiedotTest {
 
     @Test
     public void sanatTyhjassa() {
-        TekstinTiedot t = new TekstinTiedot();
-        assertEquals(t.getSanamaara(), 0);
+        TekstinTiedot tt = new TekstinTiedot();
+        assertEquals(0, tt.getSanamaara());
+    }
+    
+    @Test
+    public void naapurilistaAlussaTyhjä() {
+        TekstinTiedot tt = new TekstinTiedot();
+        assertFalse(tt.sanaListattu(""));
     }
 
     @Test
-    public void sanamaara() {
-        assertEquals(this.testeri.getSanamaara(), 12);
+    public void sanamaaraOKJaKasvaa() {
+        assertEquals(12, this.testeri.getSanamaara());
         this.testeri.plusSanamaara();
-        assertEquals(this.testeri.getSanamaara(), 13);
+        assertEquals(13, this.testeri.getSanamaara());
     }
 
     @Test
@@ -47,18 +51,32 @@ public class TekstinTiedotTest {
     }
 
     @Test
-    public void sananLisaaminen() {
+    public void sananLisaaminenStringJaEsiintymismrOikein() {
         testeri.lisaaUusiSana("soossi");
         assertTrue(testeri.sanaListattu("soossi"));
         SananNaapurit testiN = new SananNaapurit("soossi");
-        assertEquals(testeri.getSananNaapurit("soossi").getSana(), testiN.getSana());
-        assertEquals(testeri.getSananNaapurit("soossi").getEsiintymisMaara(), testiN.getEsiintymisMaara());
+        assertEquals(testiN.getSana(), testeri.getSananNaapurit("soossi").getSana());
+        assertEquals(testiN.getEsiintymisMaara(), testeri.getSananNaapurit("soossi").getEsiintymisMaara());
     }
 
     @Test
-    public void sananNaapurinLisaaminen() {
+    public void sananNaapurinLisaaminenVasemmalle() {
         testeri.lisaaUusiSana("soossi");
         testeri.lisaaNaapuri("soossi", "simpukka", true);
         assertEquals("simpukka", testeri.getSananNaapurit("soossi").getSuurin(true).getSana());
+    }
+    
+    @Test 
+    public void sananNaapuriLisataanOikealle(){
+        testeri.lisaaUusiSana("geh");
+        testeri.lisaaNaapuri("geh", "naapuri", false);
+        assertEquals("naapuri", testeri.getSananNaapurit("geh").getSuurin(false).getSana());
+    }
+    
+    @Test
+    public void joOlemassaOlevalleVoiLisataNaapureita(){
+        testeri.lisaaNaapuri("lattialla", "ei", false);
+        testeri.lisaaNaapuri("lattialla", "ei", false);
+        assertEquals("ei", testeri.getSananNaapurit("lattialla").getSuurin(false).getSana());
     }
 }

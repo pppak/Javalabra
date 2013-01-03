@@ -5,7 +5,12 @@ public class Siistija {
     public String trim(String sana) {
         sana = trimPisteet(sana);
         sana = trimLainaus(sana);
+        sana = trimIsot(sana);
         return sana;
+    }
+    
+    private String trimIsot(String sana) {
+        return sana.toLowerCase();
     }
 
     private String trimPisteet(String sana) {

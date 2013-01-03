@@ -8,10 +8,11 @@ import org.junit.Test;
 public class HaeNaapuriTest {
 
     HaeNaapuri hn;
+    TekstinTiedot tt;
 
     @Before
     public void setUp() {
-        TekstinTiedot tt = new TekstinTiedot();
+        tt = new TekstinTiedot();
         tt.lisaaUusiSana("Brody");
         tt.lisaaNaapuri("Brody", "Quest", false);
         tt.lisaaNaapuri("Brody", "Adrian", true);
@@ -19,12 +20,12 @@ public class HaeNaapuriTest {
     }
 
     @Test
-    public void konstruktori() {
-        assertNotNull(hn.getTeksti());
+    public void konstruktoriAsettaaOikeanTekstin() {
+        assertEquals(tt, hn.getTeksti());
     }
 
     @Test
-    public void tekstinVoiAsettaa() {
+    public void tekstinVoiAsettaaUudelleen() {
         TekstinTiedot tt2 = new TekstinTiedot();
         hn.setTeksti(tt2);
         assertEquals(tt2, hn.getTeksti());

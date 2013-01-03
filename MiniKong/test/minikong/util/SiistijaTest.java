@@ -24,14 +24,25 @@ public class SiistijaTest {
     public void siistiiPilkut(){
         String sana = "puli,";
         sana = siisti.trim(sana);
-        assertEquals(sana, "puli");
+        assertEquals("puli", sana);
     }
     
     @Test
     public void siistiiSitaatit(){
         String sana = "\"tikkaat\'";
         sana = siisti.trim(sana);
-        assertEquals(sana, "tikkaat");
+        assertEquals("tikkaat", sana);
     }
     
+    @Test
+    public void eiSiistiSiistia(){
+        String sana ="kaunis";
+        String sana2 = siisti.trim(sana);
+        assertEquals(sana, sana2);
+    }
+    
+    @Test
+    public void siistiIsotKirjaimet(){
+        assertEquals("noh", siisti.trim("NOH"));
+    }
 }

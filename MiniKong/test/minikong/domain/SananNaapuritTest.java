@@ -14,8 +14,8 @@ public class SananNaapuritTest {
     }
 
     @Test
-    public void sanaItseOikein() {
-        assertEquals(n.getSana(), "sana");
+    public void sanaItseAsetetaanOikein() {
+        assertEquals("sana", n.getSana());
     }
     
     @Test
@@ -25,9 +25,23 @@ public class SananNaapuritTest {
     }
     
     @Test
+    public void kunOikealleLisaaSamaEsiintymismaaraKasvaa(){
+        n.lisaaOikea("null");
+        n.lisaaOikea("null");
+        assertEquals(2, n.getSuurin(false).getEsiintymisMaara());
+    }
+    
+    @Test
     public void vasenLisataan() {
         n.lisaaVasen("omena");
         assertEquals("omena", n.getSuurin(true).getSana());
+    }
+    
+    @Test
+    public void vasemmalleSamaNostaaEsiintymismaaraa(){
+        n.lisaaVasen("nill");
+        n.lisaaVasen("nill");
+        assertEquals(2, n.getSuurin(true).getEsiintymisMaara());
     }
     
     @Test
