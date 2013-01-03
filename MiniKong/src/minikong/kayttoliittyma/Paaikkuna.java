@@ -17,7 +17,7 @@ public class Paaikkuna implements Runnable {
     @Override
     public void run() {
         frame = new JFrame();
-        frame.setPreferredSize(new Dimension(500, 500));
+        frame.setPreferredSize(new Dimension(600, 600));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +45,9 @@ public class Paaikkuna implements Runnable {
         
         TiedostonValinta tiedval = new TiedostonValinta(tulo, this.frame, this.teksti);
         osat.add(tiedval);
+        
+        Tallennanappi tnappi = new Tallennanappi(tulo, this.frame);
+        osat.add(tnappi);
         
         lisaaIkkunaan(osat, container);
         

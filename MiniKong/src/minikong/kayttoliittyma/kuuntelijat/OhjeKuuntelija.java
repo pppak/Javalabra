@@ -26,7 +26,7 @@ public class OhjeKuuntelija implements ActionListener{
         viesti.append("<br>");
         viesti.append("Tiedoston tulee olla muotoa txt.");
         viesti.append("<br>");
-        viesti.append("Kirjoita tämän jälkeen hakukentään haettava sana.");
+        viesti.append("Kirjoita tämän jälkeen hakukenttään haettava sana.");
         viesti.append("<br>");
         viesti.append("Tulokset esitetään muodossa \"sana\" (esiintymismäärä).");
         viesti.append("<br>");

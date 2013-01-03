@@ -30,6 +30,10 @@ public class Tuloslaatikko extends Komponentti {
         return laatikko;
     }
 
+    public JTextArea getTulokset() {
+        return tulokset;
+    }
+
     @Override
     void asetaRuutuun() {
         super.getGbc().gridy = 3;

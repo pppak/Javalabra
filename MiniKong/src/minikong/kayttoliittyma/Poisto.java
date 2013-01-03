@@ -20,8 +20,7 @@ public class Poisto extends Komponentti{
 
     @Override
     public void asetaRuutuun() {
-        super.getGbc().anchor = GridBagConstraints.PAGE_END;
-        super.getGbc().gridy = 4;
+        super.getGbc().gridy = 5;
     }
 
     @Override
