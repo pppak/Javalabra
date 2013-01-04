@@ -15,6 +15,12 @@ public class TekstinKasittelija {
         this.siistija = new Siistija();
     }
 
+    public TekstinKasittelija(TekstinTiedot tt, String text) {
+        this.teksti = tt;
+        this.lukija = new Lukija(text);
+        this.siistija = new Siistija();
+    }
+
     public TekstinTiedot kasittele() {
         String edellinen = null;
         String nykyinen;

@@ -43,9 +43,9 @@ public class Paaikkuna implements Runnable {
         Sanahaku sanahaku = new Sanahaku(tulo, this.teksti);
         osat.add(sanahaku);
         
-        TiedostonValinta tiedval = new TiedostonValinta(tulo, this.frame, this.teksti);
+        TekstinValinta tiedval = new TekstinValinta(tulo, this.frame, this.teksti);
         osat.add(tiedval);
-        
+                
         Tallennanappi tnappi = new Tallennanappi(tulo, this.frame);
         osat.add(tnappi);
         

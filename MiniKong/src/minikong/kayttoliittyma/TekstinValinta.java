@@ -4,15 +4,16 @@ import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import minikong.domain.TekstinTiedot;
+import minikong.kayttoliittyma.kuuntelijat.SyottonappiKuuntelija;
 import minikong.kayttoliittyma.kuuntelijat.TiedostoKuuntelija;
 
-public class TiedostonValinta extends Komponentti{
+public class TekstinValinta extends Komponentti{
 
     private TekstinTiedot tt;
     private JFrame frame;
     private Tuloslaatikko tulo;
 
-    TiedostonValinta(Tuloslaatikko tulo, JFrame frame, TekstinTiedot tt) {
+    TekstinValinta(Tuloslaatikko tulo, JFrame frame, TekstinTiedot tt) {
         super();
         this.tt = tt;
         this.frame = frame;
@@ -22,18 +23,22 @@ public class TiedostonValinta extends Komponentti{
     @Override
     public void asetaRuutuun() {
         super.getGbc().gridy = 1;
-        super.getGbc().insets = new Insets(10, -10, 5, 10);
+        super.getGbc().insets = new Insets(0, 30, 0, 0);
     }
 
     @Override
     public void teeKomponentit() {
         JButton tiedosto = new JButton("Valitse tekstitiedosto...");
-        lisaaKuuntelija(tiedosto);
+        JButton syota = new JButton("Syötä tekstiä");
+        lisaaKuuntelija(tiedosto, syota);
         super.getOsa().add(tiedosto);
+        super.getOsa().add(syota);
     }
 
-    private void lisaaKuuntelija(JButton tiedosto) {
+    private void lisaaKuuntelija(JButton tiedosto, JButton syota) {
         TiedostoKuuntelija tied = new TiedostoKuuntelija(tt, frame, tulo);
         tiedosto.addActionListener(tied);
+        SyottonappiKuuntelija sk = new SyottonappiKuuntelija(tt, frame, tulo);
+        syota.addActionListener(sk);
     }
 }

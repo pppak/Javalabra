@@ -2,15 +2,19 @@ package minikong.kayttoliittyma.kuuntelijat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import minikong.kayttoliittyma.Viesti;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import minikong.kayttoliittyma.ApuIkkuna;
 
 public class OhjeKuuntelija implements ActionListener{
 
-    Viesti ohjeViesti;
+    ApuIkkuna ohjeViesti;
 
     public OhjeKuuntelija() { 
+        JPanel sisalto = new JPanel();
         String teksti = teeViesti();
-        this.ohjeViesti = new Viesti("Ohje", teksti, 300, 300);
+        sisalto.add(new JLabel(teksti));
+        this.ohjeViesti = new ApuIkkuna("Ohje", "OK", sisalto, 300, 300);
     }
 
     @Override

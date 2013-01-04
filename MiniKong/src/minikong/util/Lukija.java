@@ -16,6 +16,10 @@ public class Lukija {
         }
     }
 
+    Lukija(String text) {
+        this.lukija = new Scanner(text);
+    }
+
     public String seuraavaSana() {
         return this.lukija.next();
     }

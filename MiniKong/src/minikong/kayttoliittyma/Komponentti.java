@@ -1,6 +1,5 @@
 package minikong.kayttoliittyma;
 
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import javax.swing.JPanel;
 

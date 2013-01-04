@@ -41,7 +41,7 @@ public class Sanahaku extends Komponentti{
     @Override
     void asetaRuutuun() {
         super.getGbc().anchor = GridBagConstraints.FIRST_LINE_START;
-        super.getGbc().gridy = 2;
+        super.getGbc().gridy = 3;
         super.getGbc().insets = new Insets(0, 0, 5, 0);
     }
 }

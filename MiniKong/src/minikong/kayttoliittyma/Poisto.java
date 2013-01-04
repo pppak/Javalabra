@@ -1,6 +1,5 @@
 package minikong.kayttoliittyma;
 
-import java.awt.GridBagConstraints;
 import javax.swing.JButton;
 import minikong.kayttoliittyma.kuuntelijat.PoistonappiKuuntelija;
 
@@ -20,7 +19,7 @@ public class Poisto extends Komponentti{
 
     @Override
     public void asetaRuutuun() {
-        super.getGbc().gridy = 5;
+        super.getGbc().gridy = 6;
     }
 
     @Override

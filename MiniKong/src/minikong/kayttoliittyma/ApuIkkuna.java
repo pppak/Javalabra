@@ -4,21 +4,23 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import minikong.kayttoliittyma.kuuntelijat.SulkunappiKuuntelija;
 
-public class Viesti implements Runnable{
+public class ApuIkkuna implements Runnable{
     
     private JFrame frame;
     private String ikkunanOtsikko;
-    private String tekstiBody;
+    private String sulkunapinTeksti;
+    private JPanel ikkunanSisalto;
     private int pituus;
     private int leveys;
 
-    public Viesti(String o, String t, int l, int w) {
+    public ApuIkkuna(String o, String nappiTeksti, JPanel sis, int l, int w) {
         this.ikkunanOtsikko = o;
-        this.tekstiBody = t;
+        this.ikkunanSisalto = sis;
+        this.sulkunapinTeksti = nappiTeksti;
         this.pituus = l;
         this.leveys = w;
     }
@@ -28,21 +30,20 @@ public class Viesti implements Runnable{
         frame = new JFrame(this.ikkunanOtsikko);
         frame.setSize(leveys, pituus);
         
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
         teeKomponentit(frame.getContentPane());
         
         frame.pack();
         frame.setVisible(true);
     }
-
+   
     private void teeKomponentit(Container c) {
-        JLabel info = new JLabel(this.tekstiBody);
-        JButton finito = new JButton("OK");
+        JButton finito = new JButton(this.sulkunapinTeksti);
         
         finito.addActionListener(new SulkunappiKuuntelija(this.frame));
         
-        c.add(info, BorderLayout.CENTER);
+        c.add(this.ikkunanSisalto, BorderLayout.CENTER);
         c.add(finito, BorderLayout.SOUTH);
     }
 }
