@@ -8,13 +8,14 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.kuuntelijat.HaeKuuntelija;
+import minikong.kayttoliittyma.kuuntelijat.ListausKuuntelija;
 
-public class Sanahaku extends Komponentti{
+public class SanahakuJaSanojenTulostus extends Komponentti{
 
     private Tuloslaatikko tulo;
     private TekstinTiedot tt;
     
-    Sanahaku(Tuloslaatikko tulo, TekstinTiedot tt) {
+    SanahakuJaSanojenTulostus(Tuloslaatikko tulo, TekstinTiedot tt) {
         super();
         this.tt = tt;
         this.tulo = tulo;
@@ -26,13 +27,18 @@ public class Sanahaku extends Komponentti{
         JLabel hakuTeksti = new JLabel("Haettava sana: ");
         JTextField hakukentta = new JTextField(20);
         JButton hakunappi = new JButton("Hae");
-        lisaaKuuntelija(hakunappi, hakukentta, new HaeKuuntelija(tt, tulo));
+        lisaaHakuKuuntelijat(hakunappi, hakukentta, new HaeKuuntelija(tt, tulo));
+        
+        JButton sanat = new JButton("Näytä sanat");
+        sanat.addActionListener(new ListausKuuntelija(tt)); 
+        
         super.getOsa().add(hakuTeksti);
         super.getOsa().add(hakukentta);
         super.getOsa().add(hakunappi);
+        super.getOsa().add(sanat);
     }
 
-    private void lisaaKuuntelija(JButton n, JTextField k, HaeKuuntelija hk) {
+    private void lisaaHakuKuuntelijat(JButton n, JTextField k, HaeKuuntelija hk) {
         hk.setHakukentta(k);
         n.addActionListener(hk);
         k.addActionListener(hk);

@@ -42,4 +42,22 @@ public class TekstinTiedot {
             this.sanojenNaapurit.get(sana).lisaaOikea(naapuri);
         }
     }
+    
+    public String sanatTekstissä(){
+        String lista = "";
+        
+        for (String s : this.sanojenNaapurit.keySet()) {
+            lista += s + " (" + this.getSananNaapurit(s).getEsiintymisMaara() + ") \n";
+        }
+        return lista;
+    }
+    
+    public int uniikitSanat(){
+        return this.sanojenNaapurit.size();
+    }
+    
+    public void uusiTeksti(){
+        this.sanamaara = 0;
+        this.sanojenNaapurit = new TreeMap();
+    }
 }

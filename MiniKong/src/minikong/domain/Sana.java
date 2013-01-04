@@ -7,7 +7,7 @@ public class Sana implements Comparable<Sana> {
 
     public Sana(String sana) {
         this.sana = sana;
-        this.esiintymisMaara = 1;
+        this.esiintymisMaara = 0;
     }
 
     public void sanaEsiintyy() {

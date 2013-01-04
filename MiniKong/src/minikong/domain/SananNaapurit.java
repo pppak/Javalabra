@@ -36,6 +36,8 @@ public class SananNaapurit extends Sana{
             this.vasen.put(v, es);
         } else {
             this.vasen.put(v, new Sana(v));
+            this.vasen.get(v).sanaEsiintyy();
+            
         }
     }
     
@@ -46,6 +48,7 @@ public class SananNaapurit extends Sana{
             this.oikea.put(o, es);
         } else {
             this.oikea.put(o, new Sana(o));
+            this.oikea.get(o).sanaEsiintyy();
         }
     }
 }

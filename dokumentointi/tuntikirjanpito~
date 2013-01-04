@@ -76,3 +76,8 @@
     min) 
   - tallenustoiminnallisuus toteutettu (3 h)
   - luotu luokkia tekstin syöttöä varten (5 min)
+4.1
+  - tekstin syöttäminen toimii, muutama bugi löydetty ja korjattu (3 h)
+  - uutta koodia yritetty kaunistaa vähän (5 min)
+  - sanojen listaaminen, uniikkien sanojen esiintymismäärät, 
+    bugikorjausta (1,5 h)

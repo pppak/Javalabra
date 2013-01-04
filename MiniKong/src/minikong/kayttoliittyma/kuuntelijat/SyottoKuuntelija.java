@@ -8,26 +8,27 @@ import minikong.kayttoliittyma.ApuIkkuna;
 import minikong.kayttoliittyma.Tuloslaatikko;
 import minikong.util.TekstinKasittelija;
 
-class SyottoKopioi implements ActionListener{
+class SyottoKuuntelija implements ActionListener{
 
     private JTextArea pasta;
-    private TekstinTiedot tt;
+    private TekstinTiedot teksti;
     private Tuloslaatikko tulo;
     private ApuIkkuna ikkuna;
     
-    SyottoKopioi(JTextArea pasta, TekstinTiedot tt, Tuloslaatikko tulo, ApuIkkuna ikkuna) {
+    SyottoKuuntelija(JTextArea pasta, TekstinTiedot tt, Tuloslaatikko tulo, ApuIkkuna ikkuna) {
         this.pasta = pasta;
-        this.tt = tt;
+        this.teksti = tt;
         this.tulo = tulo;
         this.ikkuna = ikkuna;
     }   
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        TekstinKasittelija parser = new TekstinKasittelija(this.tt, pasta.getText());
-        this.tt = parser.kasittele();
+        this.teksti.uusiTeksti();
+        TekstinKasittelija parser = new TekstinKasittelija(this.teksti, pasta.getText());
+        this.teksti = parser.kasittele();
         
-        paivitaTulokset(tt);
+        paivitaTulokset(teksti);
         this.ikkuna.getFrame().dispose();
     }
 
@@ -36,8 +37,8 @@ class SyottoKopioi implements ActionListener{
             tulo.addTeksti("Tekstiä ei syötetty.\n");
             return;
         }
-        tulo.addTeksti("*Oma tiedosto syötetty!*\n");
-        tulo.addTeksti("Tekstin sanamäärä: " + tt.getSanamaara() + "\n");
+        tulo.addTeksti("*Oma teksti syötetty!*\n");
+        tulo.addTeksti("Tekstin sanamäärä: " + tt.getSanamaara() + ". Uniikkeja sanoja esiintyy tekstissä " + this.teksti.uniikitSanat() + ".\n");
         tulo.addTeksti("---\n");
     }
     

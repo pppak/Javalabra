@@ -29,21 +29,8 @@ public class SyottonappiKuuntelija implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        GridBagConstraints gbc = new GridBagConstraints();
         JPanel ikkuna = new JPanel(new GridBagLayout());
-        JLabel ohje = new JLabel(teeTeksti());
-        ikkuna.add(ohje);
-        JTextArea pasta = new JTextArea();
-        pasta.setEditable(true);
-        JScrollPane sp = new JScrollPane(pasta);
-        sp.setPreferredSize(new Dimension(450, 300));
-        gbc.gridy = 1;
-        ikkuna.add(sp, gbc);
-        JButton syota = new JButton("OK");
-        SyottoKopioi sk = new SyottoKopioi(pasta, tt, tulo, syotto);
-        syota.addActionListener(sk);
-        gbc.gridy = 2;
-        ikkuna.add(syota, gbc);
+        ikkuna = teeIkkuna(ikkuna);
         syotto.setIkkunanSisalto(ikkuna);
         syotto.run();
     }
@@ -51,5 +38,27 @@ public class SyottonappiKuuntelija implements ActionListener{
     private String teeTeksti() {
         return "<html>Kopioi tai kirjoita alla olevaan ikkunaan teksti, <br>"
                 + "josta haluat suorittaa haut.";
+    }
+
+    private JPanel teeIkkuna(JPanel ikkuna) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        
+        JLabel ohje = new JLabel(teeTeksti());
+        ikkuna.add(ohje);
+        
+        JTextArea pasta = new JTextArea();
+        pasta.setEditable(true);
+        JScrollPane sp = new JScrollPane(pasta);
+        sp.setPreferredSize(new Dimension(450, 300));
+        gbc.gridy = 1;
+        ikkuna.add(sp, gbc);
+        
+        JButton syota = new JButton("OK");
+        SyottoKuuntelija sk = new SyottoKuuntelija(pasta, tt, tulo, syotto);
+        syota.addActionListener(sk);
+        gbc.gridy = 2;
+        ikkuna.add(syota, gbc);
+        
+        return ikkuna;
     }
 }
