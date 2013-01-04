@@ -6,7 +6,6 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -18,14 +17,14 @@ import minikong.kayttoliittyma.Tuloslaatikko;
 public class SyottonappiKuuntelija implements ActionListener{
 
     TekstinTiedot tt;
-    JFrame frame;
     Tuloslaatikko tulo;
     ApuIkkuna syotto;
     
-    public SyottonappiKuuntelija(TekstinTiedot tt, JFrame frame, Tuloslaatikko tulo) {
+    public SyottonappiKuuntelija(TekstinTiedot tt, Tuloslaatikko tulo) {
         this.tt = tt;
-        this.frame = frame;
         this.tulo = tulo;
+        //sisältö asetetaan myöhemmin; getFrame tarpeellinen ennen kuin valmis
+        this.syotto = new ApuIkkuna("Tekstin syöttö", "Peru", null, 400, 400);        
     }
 
     @Override
@@ -37,19 +36,20 @@ public class SyottonappiKuuntelija implements ActionListener{
         JTextArea pasta = new JTextArea();
         pasta.setEditable(true);
         JScrollPane sp = new JScrollPane(pasta);
+        sp.setPreferredSize(new Dimension(450, 300));
         gbc.gridy = 1;
         ikkuna.add(sp, gbc);
         JButton syota = new JButton("OK");
-        SyottoKopioi sk = new SyottoKopioi(pasta, tt, tulo);
+        SyottoKopioi sk = new SyottoKopioi(pasta, tt, tulo, syotto);
         syota.addActionListener(sk);
         gbc.gridy = 2;
         ikkuna.add(syota, gbc);
-        sp.setPreferredSize(new Dimension(450, 300));
-        syotto = new ApuIkkuna("Tekstin syöttö", "Peru", ikkuna, 400, 400);
+        syotto.setIkkunanSisalto(ikkuna);
         syotto.run();
     }
     
     private String teeTeksti() {
-        return "";
+        return "<html>Kopioi tai kirjoita alla olevaan ikkunaan teksti, <br>"
+                + "josta haluat suorittaa haut.";
     }
 }

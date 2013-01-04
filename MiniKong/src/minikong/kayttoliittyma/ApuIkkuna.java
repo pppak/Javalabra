@@ -37,6 +37,14 @@ public class ApuIkkuna implements Runnable{
         frame.pack();
         frame.setVisible(true);
     }
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public void setIkkunanSisalto(JPanel ikkunanSisalto) {
+        this.ikkunanSisalto = ikkunanSisalto;
+    }
    
     private void teeKomponentit(Container c) {
         JButton finito = new JButton(this.sulkunapinTeksti);
