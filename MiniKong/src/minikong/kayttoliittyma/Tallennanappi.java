@@ -17,7 +17,7 @@ public class Tallennanappi extends Komponentti{
 
     @Override
     public void asetaRuutuun() {
-        super.getGbc().gridy = 5;
+        super.getGbc().gridy = 6;
     }
 
     @Override

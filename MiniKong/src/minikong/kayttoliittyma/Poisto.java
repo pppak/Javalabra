@@ -19,7 +19,7 @@ public class Poisto extends Komponentti{
 
     @Override
     public void asetaRuutuun() {
-        super.getGbc().gridy = 6;
+        super.getGbc().gridy = 7;
     }
 
     @Override

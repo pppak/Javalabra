@@ -81,3 +81,6 @@
   - uutta koodia yritetty kaunistaa vähän (5 min)
   - sanojen listaaminen, uniikkien sanojen esiintymismäärät, 
     bugikorjausta (2 h)
+5.1
+  - useamman naapurin tulostusta kehitetty, ei vielä täysin testattu 
+    (1,5 h)

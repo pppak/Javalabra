@@ -40,7 +40,10 @@ public class Paaikkuna implements Runnable {
         Ohjenappi ohje = new Ohjenappi();
         osat.add(ohje);
         
-        SanahakuJaSanojenTulostus sanahaku = new SanahakuJaSanojenTulostus(tulo, this.teksti);
+        NaapurienMaara nm = new NaapurienMaara();
+        osat.add(nm);
+        
+        SanahakuJaSanojenTulostus sanahaku = new SanahakuJaSanojenTulostus(tulo, this.teksti, nm);
         osat.add(sanahaku);
         
         TekstinValinta tiedval = new TekstinValinta(tulo, this.frame, this.teksti);

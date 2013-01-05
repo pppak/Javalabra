@@ -14,9 +14,11 @@ public class SanahakuJaSanojenTulostus extends Komponentti{
 
     private Tuloslaatikko tulo;
     private TekstinTiedot tt;
+    private NaapurienMaara nm;
     
-    SanahakuJaSanojenTulostus(Tuloslaatikko tulo, TekstinTiedot tt) {
+    SanahakuJaSanojenTulostus(Tuloslaatikko tulo, TekstinTiedot tt, NaapurienMaara nm) {
         super();
+        this.nm = nm;
         this.tt = tt;
         this.tulo = tulo;
     }
@@ -27,7 +29,7 @@ public class SanahakuJaSanojenTulostus extends Komponentti{
         JLabel hakuTeksti = new JLabel("Haettava sana: ");
         JTextField hakukentta = new JTextField(20);
         JButton hakunappi = new JButton("Hae");
-        lisaaHakuKuuntelijat(hakunappi, hakukentta, new HaeKuuntelija(tt, tulo));
+        lisaaHakuKuuntelijat(hakunappi, hakukentta, new HaeKuuntelija(tt, tulo, nm));
         
         JButton sanat = new JButton("Näytä sanat");
         sanat.addActionListener(new ListausKuuntelija(tt)); 

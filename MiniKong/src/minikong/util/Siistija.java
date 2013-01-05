@@ -14,7 +14,7 @@ public class Siistija {
     }
 
     private String trimPisteet(String sana) {
-        if (sana.isEmpty() || sana.length() == 1) {
+        if (sana.isEmpty()) {
             return "";
         }
         if (sana.charAt(sana.length() - 1) == '.' || sana.charAt(sana.length() - 1) == ',') {
@@ -24,7 +24,7 @@ public class Siistija {
     }
 
     private String trimLainaus(String sana) {
-        if (sana.isEmpty() || sana.length() == 1) {
+        if (sana.isEmpty()) {
             return "";
         }
         if (sana.charAt(sana.length() - 1) == '\"' || sana.charAt(sana.length() -1) == '\'') {

@@ -63,20 +63,20 @@ public class TekstinTiedotTest {
     public void sananNaapurinLisaaminenVasemmalle() {
         testeri.lisaaUusiSana("soossi");
         testeri.lisaaNaapuri("soossi", "simpukka", true);
-        assertEquals("simpukka", testeri.getSananNaapurit("soossi").getSuurin(true).getSana());
+        assertEquals("simpukka", testeri.getSananNaapurit("soossi").getSuurimmat(true).getSana());
     }
     
     @Test 
     public void sananNaapuriLisataanOikealle(){
         testeri.lisaaUusiSana("geh");
         testeri.lisaaNaapuri("geh", "naapuri", false);
-        assertEquals("naapuri", testeri.getSananNaapurit("geh").getSuurin(false).getSana());
+        assertEquals("naapuri", testeri.getSananNaapurit("geh").getSuurimmat(false).getSana());
     }
     
     @Test
     public void joOlemassaOlevalleVoiLisataNaapureita(){
         testeri.lisaaNaapuri("lattialla", "ei", false);
         testeri.lisaaNaapuri("lattialla", "ei", false);
-        assertEquals("ei", testeri.getSananNaapurit("lattialla").getSuurin(false).getSana());
+        assertEquals("ei", testeri.getSananNaapurit("lattialla").getSuurimmat(false).getSana());
     }
 }

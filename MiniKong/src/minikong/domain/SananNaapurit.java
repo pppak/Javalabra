@@ -15,7 +15,7 @@ public class SananNaapurit extends Sana{
         this.oikea = new HashMap();
     }
     
-    public Sana getSuurin(Boolean onkoVasen) {
+    public ArrayList<Sana> getSuurimmat(Boolean onkoVasen) {
         ArrayList<Sana> jarjestettavaLista = new ArrayList();
         if (onkoVasen) {
             jarjestettavaLista.addAll(vasen.values());
@@ -26,7 +26,7 @@ public class SananNaapurit extends Sana{
             return null;
         }
         Collections.sort(jarjestettavaLista);
-        return jarjestettavaLista.get(0);
+        return jarjestettavaLista;
     }
     
     public void lisaaVasen(String v) {
