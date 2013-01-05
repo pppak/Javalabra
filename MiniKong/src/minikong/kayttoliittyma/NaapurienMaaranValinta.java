@@ -5,11 +5,11 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 
-public class NaapurienMaara extends Komponentti{
+public class NaapurienMaaranValinta extends Komponentti{
 
     SpinnerModel num;
     
-    public NaapurienMaara() {
+    public NaapurienMaaranValinta() {
         super();
     }    
 
@@ -29,7 +29,5 @@ public class NaapurienMaara extends Komponentti{
 
     public int getMaara() {
         return (Integer)num.getValue();
-    }
-    
-    
+    }    
 }

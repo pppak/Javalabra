@@ -3,12 +3,13 @@ package minikong.komennot;
 import minikong.domain.Sana;
 import minikong.domain.TekstinTiedot;
 
-public class HaeNaapuri extends Komento {
-
+public class HaeNaapuri{
+    
+    private TekstinTiedot teksti;
     private int maara;
 
     public HaeNaapuri(TekstinTiedot t, int mr) {
-        super(t);
+        this.teksti = t;
         this.maara = mr;
     }
 
@@ -17,12 +18,12 @@ public class HaeNaapuri extends Komento {
             return "Naapureita ei löydy.";
         }
         String naapurit = "";
-        int l = super.getTeksti().getSananNaapurit(sana).getSuurimmat(true).size();
+        int l = this.teksti.getSananNaapurit(sana).getSuurimmat(true).size();
         if (maara > l) {
             maara = l;
         }
         for (int i = 0; i < maara; i++) {
-            Sana s = super.getTeksti().getSananNaapurit(sana).getSuurimmat(true).get(i);
+            Sana s = this.teksti.getSananNaapurit(sana).getSuurimmat(true).get(i);
             naapurit += "\n" + s.getSana() + " (" + s.getEsiintymisMaara() + ")";
         }
         return naapurit;
@@ -33,19 +34,19 @@ public class HaeNaapuri extends Komento {
             return "Naapureita ei löydy.";
         }
         String naapurit = "";
-        int l = super.getTeksti().getSananNaapurit(sana).getSuurimmat(false).size();
+        int l = this.teksti.getSananNaapurit(sana).getSuurimmat(false).size();
         if (maara > l) {
             maara = l;
         }
         for (int i = 0; i < maara; i++) {
-            Sana s = super.getTeksti().getSananNaapurit(sana).getSuurimmat(false).get(i);
+            Sana s = this.teksti.getSananNaapurit(sana).getSuurimmat(false).get(i);
             naapurit += "\n" + s.getSana() + " (" + s.getEsiintymisMaara() + ")";
         }
         return naapurit;
     }
 
     private boolean tarkistaOnkoNaapuria(String sana, Boolean vasen) {
-        if (this.getTeksti().getSananNaapurit(sana).getSuurimmat(vasen) == null) {
+        if (this.teksti.getSananNaapurit(sana).getSuurimmat(vasen) == null) {
             return true;
         }
         return false;

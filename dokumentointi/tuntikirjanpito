@@ -84,3 +84,5 @@
 5.1
   - useamman naapurin tulostusta kehitetty, ei vielä täysin testattu 
     (1,5 h)
+  - käyttöliittymän luokkia + sälää siistitty, abstrakti luokka
+    'komento' poistettu (lopullisessa toteutuksessa tarpeeton) (1 h)

@@ -30,30 +30,30 @@ public class Paaikkuna implements Runnable {
     private void teeKomponentit(Container container) {
         container.setLayout(new GridBagLayout());
         
-        ArrayList<Komponentti> osat = new ArrayList();
-        Tuloslaatikko tulo = new Tuloslaatikko();
-        osat.add(tulo);
+        ArrayList<Komponentti> paaikkunanOsat = new ArrayList();
         
-        Poisto poisto = new Poisto(tulo);
-        osat.add(poisto);
+        Tuloslaatikko tulo = new Tuloslaatikko();
+        paaikkunanOsat.add(tulo);
+        
+        TulostenPoisto poisto = new TulostenPoisto(tulo);
+        paaikkunanOsat.add(poisto);
         
         Ohjenappi ohje = new Ohjenappi();
-        osat.add(ohje);
+        paaikkunanOsat.add(ohje);
         
-        NaapurienMaara nm = new NaapurienMaara();
-        osat.add(nm);
+        NaapurienMaaranValinta nm = new NaapurienMaaranValinta();
+        paaikkunanOsat.add(nm);
         
         SanahakuJaSanojenTulostus sanahaku = new SanahakuJaSanojenTulostus(tulo, this.teksti, nm);
-        osat.add(sanahaku);
+        paaikkunanOsat.add(sanahaku);
         
         TekstinValinta tiedval = new TekstinValinta(tulo, this.frame, this.teksti);
-        osat.add(tiedval);
+        paaikkunanOsat.add(tiedval);
                 
         Tallennanappi tnappi = new Tallennanappi(tulo, this.frame);
-        osat.add(tnappi);
+        paaikkunanOsat.add(tnappi);
         
-        lisaaIkkunaan(osat, container);
-        
+        lisaaIkkunaan(paaikkunanOsat, container);
     }
 
     private void lisaaIkkunaan(ArrayList<Komponentti> osat, Container container) {

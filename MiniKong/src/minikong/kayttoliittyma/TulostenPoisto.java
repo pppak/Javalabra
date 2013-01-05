@@ -3,11 +3,11 @@ package minikong.kayttoliittyma;
 import javax.swing.JButton;
 import minikong.kayttoliittyma.kuuntelijat.PoistonappiKuuntelija;
 
-public class Poisto extends Komponentti{
+public class TulostenPoisto extends Komponentti{
 
     private Tuloslaatikko tulo;
     
-    Poisto(Tuloslaatikko tulo) {
+    TulostenPoisto(Tuloslaatikko tulo) {
         super();
         this.tulo = tulo;
     }

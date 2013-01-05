@@ -17,9 +17,9 @@ public class ApuIkkuna implements Runnable{
     private int pituus;
     private int leveys;
 
-    public ApuIkkuna(String o, String nappiTeksti, JPanel sis, int l, int w) {
-        this.ikkunanOtsikko = o;
-        this.ikkunanSisalto = sis;
+    public ApuIkkuna(String otsikko, String nappiTeksti, JPanel sisalto, int l, int w) {
+        this.ikkunanOtsikko = otsikko;
+        this.ikkunanSisalto = sisalto;
         this.sulkunapinTeksti = nappiTeksti;
         this.pituus = l;
         this.leveys = w;

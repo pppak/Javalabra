@@ -50,8 +50,7 @@ public class TiedostoKuuntelija implements ActionListener {
     private void paivitaTulokset(JFileChooser tiedVal, File file) {
         tulo.addTeksti("*Uusi tiedosto valittu!* \n");
         tulo.addTeksti("Valittu tiedosto: " + tiedVal.getName(file) + "\n");
-        tulo.addTeksti("Tekstin sanamäärä: " + this.teksti.getSanamaara() 
-                + ". Uniikkeja sanoja esiintyy tekstissä " + this.teksti.uniikitSanat() + ".\n");
+        tulo.addTeksti(this.teksti.sanamaaraTulostus());
         tulo.addTeksti("---\n");
     }
 }

@@ -15,6 +15,5 @@ public class SulkunappiKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         f.dispose();
-    }
-    
+    }    
 }

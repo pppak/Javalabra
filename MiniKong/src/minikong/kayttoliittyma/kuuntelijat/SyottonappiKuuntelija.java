@@ -18,21 +18,21 @@ public class SyottonappiKuuntelija implements ActionListener{
 
     TekstinTiedot tt;
     Tuloslaatikko tulo;
-    ApuIkkuna syotto;
+    ApuIkkuna syottoIkkuna;
     
     public SyottonappiKuuntelija(TekstinTiedot tt, Tuloslaatikko tulo) {
         this.tt = tt;
         this.tulo = tulo;
         //sisältö asetetaan myöhemmin; getFrame tarpeellinen ennen kuin valmis
-        this.syotto = new ApuIkkuna("Tekstin syöttö", "Peru", null, 400, 400);        
+        this.syottoIkkuna = new ApuIkkuna("Tekstin syöttö", "Peru", null, 400, 400);        
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         JPanel ikkuna = new JPanel(new GridBagLayout());
         ikkuna = teeIkkuna(ikkuna);
-        syotto.setIkkunanSisalto(ikkuna);
-        syotto.run();
+        syottoIkkuna.setIkkunanSisalto(ikkuna);
+        syottoIkkuna.run();
     }
     
     private String teeTeksti() {
@@ -46,15 +46,15 @@ public class SyottonappiKuuntelija implements ActionListener{
         JLabel ohje = new JLabel(teeTeksti());
         ikkuna.add(ohje);
         
-        JTextArea pasta = new JTextArea();
-        pasta.setEditable(true);
-        JScrollPane sp = new JScrollPane(pasta);
+        JTextArea syottoAlue = new JTextArea();
+        syottoAlue.setEditable(true);
+        JScrollPane sp = new JScrollPane(syottoAlue);
         sp.setPreferredSize(new Dimension(450, 300));
         gbc.gridy = 1;
         ikkuna.add(sp, gbc);
         
         JButton syota = new JButton("OK");
-        SyottoKuuntelija sk = new SyottoKuuntelija(pasta, tt, tulo, syotto);
+        SyottoKuuntelija sk = new SyottoKuuntelija(syottoAlue, tt, tulo, syottoIkkuna);
         syota.addActionListener(sk);
         gbc.gridy = 2;
         ikkuna.add(syota, gbc);

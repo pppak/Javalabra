@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import minikong.domain.TekstinTiedot;
-import minikong.kayttoliittyma.NaapurienMaara;
+import minikong.kayttoliittyma.NaapurienMaaranValinta;
 import minikong.kayttoliittyma.Tuloslaatikko;
 import minikong.komennot.HaeNaapuri;
 import minikong.util.Siistija;
@@ -14,14 +14,13 @@ public class HaeKuuntelija implements ActionListener {
     private JTextField kentta;
     private TekstinTiedot teksti;
     private Tuloslaatikko tulos;
-    private String haettu;
-    private NaapurienMaara naapurienMr;
+    private NaapurienMaaranValinta naapurienMr;
 
-    public HaeKuuntelija(TekstinTiedot teksti, Tuloslaatikko tulos, NaapurienMaara nm) {
-        this.kentta = null;
+    public HaeKuuntelija(TekstinTiedot teksti, Tuloslaatikko tulos, NaapurienMaaranValinta nm, JTextField haku) {
         this.teksti = teksti;
         this.tulos = tulos;
         this.naapurienMr = nm;
+        this.kentta = haku;
     }
 
     @Override
@@ -32,28 +31,22 @@ public class HaeKuuntelija implements ActionListener {
         }
 
         Siistija siisti = new Siistija();
-        haettu = siisti.trim(kentta.getText());
-        if (haettu.isEmpty()) {
-            return;
-        }
+        String haettu = siisti.trim(kentta.getText());
+
         if (!teksti.sanaListattu(haettu)) {
             tulos.addTeksti("Sanaa \'" + haettu + "\' ei löydy valitusta tekstistä. \n");
             return;
         }
 
-        tulostenTulostus();
+        tulostenTulostus(haettu);
     }
 
-    private void tulostenTulostus() {
+    private void tulostenTulostus(String haettu) {
         HaeNaapuri haku = new HaeNaapuri(teksti, naapurienMr.getMaara());
         tulos.addTeksti("Haettu sana: " + haettu + "\n");
         tulos.addTeksti("Sana esiintyy tekstissä " + teksti.getSananNaapurit(haettu).getEsiintymisMaara() + " kertaa" + "\n");
         tulos.addTeksti("Yleisimmät naapurisanat vasemmalla: " + haku.getVasen(haettu) + "\n");
-        tulos.addTeksti("Yleisimmät naapurisanat oikealla: " + haku.getOikea(haettu));
+        tulos.addTeksti("Yleisimmät naapurisanat oikealla: " + haku.getOikea(haettu) + "\n");
         tulos.addTeksti("***\n");
-    }
-
-    public void setHakukentta(JTextField hakukentta) {
-        this.kentta = hakukentta;
     }
 }

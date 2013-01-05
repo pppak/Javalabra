@@ -38,6 +38,7 @@ public class TekstinValinta extends Komponentti{
     private void lisaaKuuntelija(JButton tiedosto, JButton syota) {
         TiedostoKuuntelija tied = new TiedostoKuuntelija(tt, frame, tulo);
         tiedosto.addActionListener(tied);
+        
         SyottonappiKuuntelija sk = new SyottonappiKuuntelija(tt, tulo);
         syota.addActionListener(sk);
     }

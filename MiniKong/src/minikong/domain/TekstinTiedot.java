@@ -23,8 +23,9 @@ public class TekstinTiedot {
         this.sanamaara++;
     }
 
-    public int getSanamaara() {
-        return sanamaara;
+    public String sanamaaraTulostus() {
+        return "Tekstin sanamäärä: " + sanamaara + ". Uniikkeja sanoja löytyy " 
+                + this.sanojenNaapurit.size() + ".\n";
     }
 
     public SananNaapurit getSananNaapurit(String sana) {
@@ -43,7 +44,7 @@ public class TekstinTiedot {
         }
     }
     
-    public String sanatTekstissä(){
+    public String kaikkiSanatTekstissäTulostus(){
         String lista = "";
         
         for (String s : this.sanojenNaapurit.keySet()) {
@@ -51,13 +52,13 @@ public class TekstinTiedot {
         }
         return lista;
     }
-    
-    public int uniikitSanat(){
-        return this.sanojenNaapurit.size();
-    }
-    
+   
     public void uusiTeksti(){
         this.sanamaara = 0;
         this.sanojenNaapurit = new TreeMap();
+    }
+
+    public int getSanamaara() {
+        return sanamaara;
     }
 }

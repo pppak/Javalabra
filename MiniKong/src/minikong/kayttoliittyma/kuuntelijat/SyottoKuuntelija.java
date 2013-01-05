@@ -10,13 +10,13 @@ import minikong.util.TekstinKasittelija;
 
 class SyottoKuuntelija implements ActionListener{
 
-    private JTextArea pasta;
+    private JTextArea syottoAlue;
     private TekstinTiedot teksti;
     private Tuloslaatikko tulo;
     private ApuIkkuna ikkuna;
     
     SyottoKuuntelija(JTextArea pasta, TekstinTiedot tt, Tuloslaatikko tulo, ApuIkkuna ikkuna) {
-        this.pasta = pasta;
+        this.syottoAlue = pasta;
         this.teksti = tt;
         this.tulo = tulo;
         this.ikkuna = ikkuna;
@@ -25,7 +25,7 @@ class SyottoKuuntelija implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         this.teksti.uusiTeksti();
-        TekstinKasittelija parser = new TekstinKasittelija(this.teksti, pasta.getText());
+        TekstinKasittelija parser = new TekstinKasittelija(this.teksti, syottoAlue.getText());
         this.teksti = parser.kasittele();
         
         paivitaTulokset(teksti);
@@ -38,8 +38,7 @@ class SyottoKuuntelija implements ActionListener{
             return;
         }
         tulo.addTeksti("*Oma teksti syötetty!*\n");
-        tulo.addTeksti("Tekstin sanamäärä: " + tt.getSanamaara() + ". Uniikkeja sanoja esiintyy tekstissä " + this.teksti.uniikitSanat() + ".\n");
+        tulo.addTeksti(this.teksti.sanamaaraTulostus());
         tulo.addTeksti("---\n");
-    }
-    
+    }  
 }

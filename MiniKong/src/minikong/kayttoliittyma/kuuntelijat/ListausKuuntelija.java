@@ -18,13 +18,12 @@ public class ListausKuuntelija implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         Tuloslaatikko sanat = new Tuloslaatikko();
-        sanat.addTeksti(tt.sanatTekstissä());
+        sanat.addTeksti(tt.kaikkiSanatTekstissäTulostus());
         
         JPanel osat = new JPanel();
         osat.add(sanat.getLaatikko());
         
         ApuIkkuna ikkuna = new ApuIkkuna("Tekstistä löytyvät sanat", "OK", osat, 450, 450);
         ikkuna.run();
-    }
-    
+    }   
 }
