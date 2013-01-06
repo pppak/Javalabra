@@ -8,6 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import minikong.kayttoliittyma.kuuntelijat.SulkunappiKuuntelija;
 
+/** Luo uuden parametrien mukaisen pop-up ikkunan ja asettaa sen sisällön.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class ApuIkkuna implements Runnable{
     
     private JFrame frame;

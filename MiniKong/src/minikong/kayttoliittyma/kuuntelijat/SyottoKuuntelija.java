@@ -8,6 +8,10 @@ import minikong.kayttoliittyma.ApuIkkuna;
 import minikong.kayttoliittyma.Tuloslaatikko;
 import minikong.util.TekstinKasittelija;
 
+/** Laittaa syötetyn tekstin käsittelyyn ja tulostaa käsittelyn tulokset.
+ * 
+ * @author Pia Pakarinen
+ */
 class SyottoKuuntelija implements ActionListener{
 
     private JTextArea syottoAlue;

@@ -4,6 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
+/** Sulkee valitun ikkunan.
+ * 
+ * @author Pia Pakarinen
+ */
 public class SulkunappiKuuntelija implements ActionListener {
 
     private JFrame f;

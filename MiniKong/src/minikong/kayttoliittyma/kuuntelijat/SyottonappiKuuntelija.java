@@ -14,6 +14,10 @@ import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.ApuIkkuna;
 import minikong.kayttoliittyma.Tuloslaatikko;
 
+/** Rakentaa uuden ikkunan tekstin syöttöä varten.
+ * 
+ * @author Pia Pakarinen
+ */
 public class SyottonappiKuuntelija implements ActionListener{
 
     TekstinTiedot tt;

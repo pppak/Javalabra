@@ -4,6 +4,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import minikong.kayttoliittyma.kuuntelijat.TallennaKuuntelija;
 
+/** Luo napin tulosten tallentamista varten.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class Tallennanappi extends Komponentti{
     
     Tuloslaatikko l;

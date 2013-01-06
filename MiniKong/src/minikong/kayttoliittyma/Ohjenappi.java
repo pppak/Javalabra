@@ -4,6 +4,10 @@ import java.awt.GridBagConstraints;
 import javax.swing.JButton;
 import minikong.kayttoliittyma.kuuntelijat.OhjeKuuntelija;
 
+/** Luo napin ohjeikkunaa varten.
+ * 
+ * @author Pia Pakarinen
+ */
 public class Ohjenappi extends Komponentti {
 
     Ohjenappi() {

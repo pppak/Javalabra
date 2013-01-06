@@ -2,6 +2,11 @@ package minikong.util;
 
 import java.util.ArrayList;
 
+/** Poistaa valitusta sanasta yleisimmät välimerkit lopusta ja alusta. Muuntaa sanan pienikirjaimisiksi.
+ * Ei täysin käsittele peräkkäisiä eri välimerkkejä.
+ * 
+ * @author Pia Pakarinen
+ */
 public class Siistija {
 
     public String trim(String sana) {

@@ -4,6 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import minikong.kayttoliittyma.Tuloslaatikko;
 
+/** Tyhjentää tulokset laatikosta.
+ * 
+ * @author Pia Pakarinen
+ */
 public class PoistonappiKuuntelija implements ActionListener{
 
     private Tuloslaatikko tulo;

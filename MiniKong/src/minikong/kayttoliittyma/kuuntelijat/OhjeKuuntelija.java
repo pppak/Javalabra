@@ -6,6 +6,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import minikong.kayttoliittyma.ApuIkkuna;
 
+/** Luo ohje-ikkunan ja sen sisältämän tekstin.
+ * 
+ * @author Pia Pakarinen
+ */
 public class OhjeKuuntelija implements ActionListener{
 
     ApuIkkuna ohjeViesti;

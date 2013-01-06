@@ -5,6 +5,12 @@ import javax.swing.SwingUtilities;
 import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.Paaikkuna;
 
+/** Luo ja käynnistää käyttöliittymän.
+ * 
+ * @author Pia Pakarinen
+ * 
+ */
+
 public class MiniKong {
 
     public static void main(String[] args) {        

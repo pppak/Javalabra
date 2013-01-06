@@ -10,6 +10,12 @@ import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.kuuntelijat.HaeKuuntelija;
 import minikong.kayttoliittyma.kuuntelijat.ListausKuuntelija;
 
+/** Luo käyttöliittymän kolmannella rivillä sijaitsevat osat sanojen hakuun ja 
+ * valitun tekstin uniikkien sanojen tulostamiseen.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class SanahakuJaSanojenTulostus extends Komponentti{
 
     private Tuloslaatikko tulo;

@@ -3,6 +3,11 @@ package minikong.kayttoliittyma;
 import javax.swing.JButton;
 import minikong.kayttoliittyma.kuuntelijat.PoistonappiKuuntelija;
 
+/** Luo napin tuloslaatikon tyhjentämistä varten.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class TulostenPoisto extends Komponentti{
 
     private Tuloslaatikko tulo;

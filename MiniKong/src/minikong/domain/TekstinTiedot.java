@@ -2,6 +2,11 @@ package minikong.domain;
 
 import java.util.TreeMap;
 
+/** Tallettaa käsiteltävän tekstin sanamäärän ja tekstin sanat SananNaapuri-luokan ilmentyminä.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class TekstinTiedot {
 
     private int sanamaara;

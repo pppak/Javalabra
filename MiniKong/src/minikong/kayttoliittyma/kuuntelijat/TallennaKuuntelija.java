@@ -10,6 +10,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import minikong.kayttoliittyma.Tuloslaatikko;
 
+/** Hoitaa tulosten tallentamisen txt-tiedostona.
+ * 
+ * @author Pia Pakarinen
+ */
 public class TallennaKuuntelija implements ActionListener {
 
     private Tuloslaatikko tulokset;

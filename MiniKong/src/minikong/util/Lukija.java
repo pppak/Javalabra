@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/** Käy läpi joko File tai String muotoisen tekstin sana kerrallaan.
+ * 
+ * @author Pia Pakarinen
+ */
 public class Lukija {
 
     private Scanner lukija;

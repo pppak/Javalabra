@@ -1,5 +1,10 @@
 package minikong.domain;
 
+/** Tallentaa tekstin sanoista esiintymiä, jossa sanat ovat vertailtavissa esiintymismääriensä mukaan.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class Sana implements Comparable<Sana> {
 
     private String sana;

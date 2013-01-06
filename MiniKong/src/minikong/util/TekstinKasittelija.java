@@ -3,6 +3,10 @@ package minikong.util;
 import java.io.File;
 import minikong.domain.TekstinTiedot;
 
+/** Käy tekstin läpi sana sanalta ja tallentaa kaikkien erilaisten sanojen esiintymät ja näiden naapurit.
+ * 
+ * @author Pia Pakarinen
+ */
 public class TekstinKasittelija {
 
     private TekstinTiedot teksti;

@@ -7,6 +7,10 @@ import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.ApuIkkuna;
 import minikong.kayttoliittyma.Tuloslaatikko;
 
+/** Luo uuden ikkunan ja tuloslaatikon jossa näytetään tekstissä esiintyvät uniikit sanat.
+ * 
+ * @author Pia Pakarinen
+ */
 public class ListausKuuntelija implements ActionListener{
 
     private TekstinTiedot tt;

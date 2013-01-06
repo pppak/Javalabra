@@ -10,6 +10,10 @@ import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.Tuloslaatikko;
 import minikong.util.TekstinKasittelija;
 
+/** Hankkii ja laittaa valitun tekstitiedoston käsittelyyn.
+ * 
+ * @author Pia Pakarinen
+ */
 public class TiedostoKuuntelija implements ActionListener {
 
     private TekstinTiedot teksti;

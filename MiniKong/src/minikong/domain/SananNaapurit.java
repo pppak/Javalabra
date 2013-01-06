@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
+/** Tallettaa Sana-luokan attribuuttien lisäksi jonkun tietyn sanan välittömät naapurit oikealta ja vasemmalta listoina.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class SananNaapurit extends Sana{
     
     private HashMap<String, Sana> vasen;

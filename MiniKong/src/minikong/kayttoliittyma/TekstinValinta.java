@@ -7,6 +7,12 @@ import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.kuuntelijat.SyottonappiKuuntelija;
 import minikong.kayttoliittyma.kuuntelijat.TiedostoKuuntelija;
 
+/** Luo napit käsiteltävän tekstin valitsemiseen joko tiedostona tai suoraan
+ * syötettävänä.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class TekstinValinta extends Komponentti{
 
     private TekstinTiedot tt;

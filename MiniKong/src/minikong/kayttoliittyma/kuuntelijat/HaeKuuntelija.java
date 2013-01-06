@@ -9,6 +9,11 @@ import minikong.kayttoliittyma.NaapurienMaaranValinta;
 import minikong.kayttoliittyma.Tuloslaatikko;
 import minikong.util.Siistija;
 
+/** Suorittaa sanan naapureiden haun tulosten tulostuksen.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class HaeKuuntelija implements ActionListener {
 
     private JTextField kentta;

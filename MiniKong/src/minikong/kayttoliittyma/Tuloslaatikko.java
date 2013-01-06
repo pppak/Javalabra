@@ -5,6 +5,11 @@ import java.awt.Dimension;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/** Luo laatikon jossa hakujen ja tekstinkäsittelyn tulokset näytetään.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class Tuloslaatikko extends Komponentti {
 
     private JScrollPane laatikko;

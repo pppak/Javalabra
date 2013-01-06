@@ -5,6 +5,11 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 
+/** Luo etsittävien naapurien määrän määrittävän osion Pääikkunaa varten.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class NaapurienMaaranValinta extends Komponentti{
 
     SpinnerModel num;

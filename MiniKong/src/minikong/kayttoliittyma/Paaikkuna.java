@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import javax.swing.*;
 import minikong.domain.TekstinTiedot;
 
+/** Luo käyttöliittymän pääikkunan ja asettaa sen komponentit.
+ * 
+ * @author Pia Pakarinen
+ */
+
 public class Paaikkuna implements Runnable {
 
     private JFrame frame;
