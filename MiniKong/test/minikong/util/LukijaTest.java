@@ -17,7 +17,13 @@ public class LukijaTest {
     }
     
     @Test
-    public void konstruktoriLuoAinaOlion(){
+    public void konstruktoriFilella(){
+        assertNotNull(l);
+    }
+    
+    @Test
+    public void konstruktoriStringilla(){
+        l = new Lukija("pah");
         assertNotNull(l);
     }
     

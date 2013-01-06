@@ -15,34 +15,61 @@ public class SiistijaTest {
     
     @Test
     public void siistiiPisteet(){
-        String sana = "kalju.";
-        sana = this.siisti.trim(sana);
-        assertEquals(sana, "kalju");
+        assertEquals("kalju", siisti.trim("kalju."));
+    }
+    
+    @Test
+    public void siistiiKolmoispisteet(){
+        assertEquals("whyyy", siisti.trim("whyyy..."));
     }
     
     @Test
     public void siistiiPilkut(){
-        String sana = "puli,";
-        sana = siisti.trim(sana);
-        assertEquals("puli", sana);
+        assertEquals("puli", siisti.trim("puli,"));
     }
     
     @Test
     public void siistiiSitaatit(){
-        String sana = "\"tikkaat\'";
-        sana = siisti.trim(sana);
-        assertEquals("tikkaat", sana);
+        assertEquals("tikkaat", siisti.trim("\"tikkaat\'"));
+    }
+    
+    @Test
+    public void siistiiKaksoipisteet(){
+        assertEquals("käyttis", siisti.trim("käyttis:"));
+    }
+    
+    @Test
+    public void siistiiPuolipisteet(){
+        assertEquals("kuu", siisti.trim("kuu;"));
+    }
+    
+    @Test
+    public void siistiiHuutomerkit(){
+        assertEquals("juusto", siisti.trim("juusto!"));
+    }
+    
+    @Test
+    public void siistiiKysymysmerkit(){
+        assertEquals("häirikkö", siisti.trim("häirikkö?????"));
+    }
+    
+    @Test
+    public void siistiiSulkeet(){
+        assertEquals("muu", siisti.trim("({[muu]})"));
+    }
+
+    @Test
+    public void siistiIsotKirjaimet(){
+        assertEquals("noh", siisti.trim("NOH"));
     }
     
     @Test
     public void eiSiistiSiistia(){
-        String sana ="kaunis";
-        String sana2 = siisti.trim(sana);
-        assertEquals(sana, sana2);
+        assertEquals("kaunis", siisti.trim("kaunis"));
     }
     
     @Test
-    public void siistiIsotKirjaimet(){
-        assertEquals("noh", siisti.trim("NOH"));
+    public void eiKaaduKunSanastaTuleeTyhja(){
+        assertEquals("", siisti.trim(".,?!\'\""));
     }
 }

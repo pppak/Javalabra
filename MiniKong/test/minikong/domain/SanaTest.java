@@ -12,17 +12,17 @@ public class SanaTest {
     public void setUp() {
         s = new Sana("sana");
     }
-
+    
     @Test
-    public void sananEsiintymisMaaraOikein() {
-        assertEquals(1, s.getEsiintymisMaara());
-        s.sanaEsiintyy();
-        assertEquals(2, s.getEsiintymisMaara());
+    public void sanaAsettuuOikein() {
+        assertEquals("sana", s.getSana());
+        assertEquals(0, s.getEsiintymisMaara());
     }
 
     @Test
-    public void sanaTallennetaanOikein() {
-        assertEquals("sana", s.getSana());
+    public void sananEsiintymisMaaraKasvaa() {
+        s.sanaEsiintyy();
+        assertEquals(1, s.getEsiintymisMaara());
     }
     
     @Test

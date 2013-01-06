@@ -26,6 +26,9 @@ public class TekstinKasittelija {
         String nykyinen;
         while (lukija.onkoSeuraava()) {
             nykyinen = this.siistija.trim(lukija.seuraavaSana());
+            if (nykyinen.isEmpty()) {
+                continue;
+            }
             teksti.plusSanamaara();
             
             if (!teksti.sanaListattu(nykyinen)) {

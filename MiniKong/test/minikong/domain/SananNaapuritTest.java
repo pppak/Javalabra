@@ -16,47 +16,57 @@ public class SananNaapuritTest {
     @Test
     public void sanaItseAsetetaanOikein() {
         assertEquals("sana", n.getSana());
+        assertEquals(0, n.getEsiintymisMaara());
+    }
+    
+    
+    @Test
+    public void naapuritLisataanJaTulostetaanKunYksiVasen(){
+        n.lisaaVasen("kala");
+        assertEquals("\nkala (1)", n.tulostaNaapurit(1, true));
     }
     
     @Test
-    public void oikeaLisataan() {
-        n.lisaaOikea("banaani");
-        assertEquals("banaani", n.getSuurimmat(false).getSana());
+    public void naapuritLisataanJaTulostetaanKunYksiOikea(){
+        n.lisaaOikea("kala");
+        assertEquals("\nkala (1)", n.tulostaNaapurit(1, false));
     }
     
     @Test
-    public void kunOikealleLisaaSamaEsiintymismaaraKasvaa(){
-        n.lisaaOikea("null");
-        n.lisaaOikea("null");
-        assertEquals(2, n.getSuurimmat(false).getEsiintymisMaara());
+    public void useampiNaapuriTulostuuOikeinVasen(){
+        n.lisaaVasen("kala");
+        n.lisaaVasen("hauki");
+        assertEquals("\nhauki (1)\nkala (1)", n.tulostaNaapurit(2, true));
     }
     
     @Test
-    public void vasenLisataan() {
-        n.lisaaVasen("omena");
-        assertEquals("omena", n.getSuurimmat(true).getSana());
+    public void useampiNaapuriTulostuuOikeinOikea(){
+        n.lisaaOikea("kala");
+        n.lisaaOikea("hauki");
+        assertEquals("\nhauki (1)\nkala (1)", n.tulostaNaapurit(2, false));
     }
     
     @Test
-    public void vasemmalleSamaNostaaEsiintymismaaraa(){
-        n.lisaaVasen("nill");
-        n.lisaaVasen("nill");
-        assertEquals(2, n.getSuurimmat(true).getEsiintymisMaara());
+    public void samanNaapurinLisaaminenNostaaEsiintymismaaraa(){
+        n.lisaaOikea("kala");
+        n.lisaaOikea("kala");
+        assertEquals("\nkala (2)", n.tulostaNaapurit(2, false));
+        n.lisaaVasen("hauki");
+        n.lisaaVasen("hauki");
+        assertEquals("\nhauki (2)", n.tulostaNaapurit(2, true));
     }
     
     @Test
-    public void palauttaaSuurimmanOikea() {
-        n.lisaaOikea("kissa");
-        n.lisaaOikea("kommari");
-        n.lisaaOikea("kissa");
-        assertEquals("kissa", n.getSuurimmat(false).getSana());
+    public void naapuritTulostuvatSuuruusjarjestyksessa(){
+        n.lisaaOikea("kala");
+        n.lisaaOikea("kala");
+        n.lisaaOikea("hauki");
+        assertEquals("\nkala (2)\nhauki (1)", n.tulostaNaapurit(2, false));
     }
     
     @Test
-    public void palauttaaSuurimmanVasen() {
-        n.lisaaVasen("koira");
-        n.lisaaVasen("kapitalisti");
-        n.lisaaVasen("koira");
-        assertEquals("koira", n.getSuurimmat(true).getSana());
+    public void naapureitaEiTulostetaEnempääKuinOlemassa(){
+        n.lisaaVasen("kala");
+        assertEquals("\nkala (1)", n.tulostaNaapurit(5, true));
     }
 }

@@ -30,11 +30,11 @@ public class TekstinTiedotTest {
     @Test
     public void naapurilistaAlussaTyhjä() {
         TekstinTiedot tt = new TekstinTiedot();
-        assertFalse(tt.sanaListattu(""));
+        assertEquals(null, tt.getSananNaapurit("a"));
     }
 
     @Test
-    public void sanamaaraOKJaKasvaa() {
+    public void sanamaaraLasketaanJaKasvaa() {
         assertEquals(12, this.testeri.getSanamaara());
         this.testeri.plusSanamaara();
         assertEquals(13, this.testeri.getSanamaara());
@@ -63,20 +63,38 @@ public class TekstinTiedotTest {
     public void sananNaapurinLisaaminenVasemmalle() {
         testeri.lisaaUusiSana("soossi");
         testeri.lisaaNaapuri("soossi", "simpukka", true);
-        assertEquals("simpukka", testeri.getSananNaapurit("soossi").getSuurimmat(true).getSana());
+        assertEquals("\nsimpukka (1)", testeri.getSananNaapurit("soossi").tulostaNaapurit(1, true));
     }
     
     @Test 
     public void sananNaapuriLisataanOikealle(){
         testeri.lisaaUusiSana("geh");
         testeri.lisaaNaapuri("geh", "naapuri", false);
-        assertEquals("naapuri", testeri.getSananNaapurit("geh").getSuurimmat(false).getSana());
+        assertEquals("\nnaapuri (1)", testeri.getSananNaapurit("geh").tulostaNaapurit(1, false));
     }
     
     @Test
     public void joOlemassaOlevalleVoiLisataNaapureita(){
         testeri.lisaaNaapuri("lattialla", "ei", false);
         testeri.lisaaNaapuri("lattialla", "ei", false);
-        assertEquals("ei", testeri.getSananNaapurit("lattialla").getSuurimmat(false).getSana());
+        assertEquals("\nei (2)", testeri.getSananNaapurit("lattialla").tulostaNaapurit(1, false));
+    }
+    
+    @Test
+    public void tekstinVoiNollata(){
+        testeri.uusiTeksti();
+        assertEquals(0, testeri.getSanamaara());
+        assertEquals(null, testeri.getSananNaapurit("vihreä"));
+    }
+    
+    @Test
+    public void sanamaaranTulostusmuotoOikein(){
+        assertEquals("Tekstin sanamäärä: 12. Uniikkeja sanoja löytyy 9.\n" ,testeri.sanamaaraTulostus());
+    }
+    
+    @Test 
+    public void kaikkiTekstinSanatTulostuvat(){
+        assertEquals("banaani (1)\nkatolla (1)\nkoira (1)\nlattialla (1)\nmusta (1)\n"
+                + "on (3)\nseinällä (1)\ntv (1)\nvihreä (2)\n", testeri.kaikkiSanatTekstissäTulostus());
     }
 }

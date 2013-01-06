@@ -48,7 +48,7 @@ public class TekstinTiedot {
         String lista = "";
         
         for (String s : this.sanojenNaapurit.keySet()) {
-            lista += s + " (" + this.getSananNaapurit(s).getEsiintymisMaara() + ") \n";
+            lista += s + " (" + this.getSananNaapurit(s).getEsiintymisMaara() + ")\n";
         }
         return lista;
     }

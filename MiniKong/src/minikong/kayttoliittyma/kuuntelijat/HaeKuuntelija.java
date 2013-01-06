@@ -3,10 +3,10 @@ package minikong.kayttoliittyma.kuuntelijat;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
+import minikong.domain.SananNaapurit;
 import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.NaapurienMaaranValinta;
 import minikong.kayttoliittyma.Tuloslaatikko;
-import minikong.komennot.HaeNaapuri;
 import minikong.util.Siistija;
 
 public class HaeKuuntelija implements ActionListener {
@@ -32,6 +32,10 @@ public class HaeKuuntelija implements ActionListener {
 
         Siistija siisti = new Siistija();
         String haettu = siisti.trim(kentta.getText());
+        
+        if (haettu.isEmpty()) {
+            return;
+        }
 
         if (!teksti.sanaListattu(haettu)) {
             tulos.addTeksti("Sanaa \'" + haettu + "\' ei löydy valitusta tekstistä. \n");
@@ -42,11 +46,11 @@ public class HaeKuuntelija implements ActionListener {
     }
 
     private void tulostenTulostus(String haettu) {
-        HaeNaapuri haku = new HaeNaapuri(teksti, naapurienMr.getMaara());
+        SananNaapurit sana = teksti.getSananNaapurit(haettu);
         tulos.addTeksti("Haettu sana: " + haettu + "\n");
-        tulos.addTeksti("Sana esiintyy tekstissä " + teksti.getSananNaapurit(haettu).getEsiintymisMaara() + " kertaa" + "\n");
-        tulos.addTeksti("Yleisimmät naapurisanat vasemmalla: " + haku.getVasen(haettu) + "\n");
-        tulos.addTeksti("Yleisimmät naapurisanat oikealla: " + haku.getOikea(haettu) + "\n");
+        tulos.addTeksti("Sana esiintyy tekstissä " + sana.getEsiintymisMaara() + " kertaa" + "\n");
+        tulos.addTeksti("Yleisimmät naapurisanat vasemmalla: " + sana.tulostaNaapurit(naapurienMr.getMaara(), true) + "\n");
+        tulos.addTeksti("Yleisimmät naapurisanat oikealla: " + sana.tulostaNaapurit(naapurienMr.getMaara(), false) + "\n");
         tulos.addTeksti("***\n");
     }
 }

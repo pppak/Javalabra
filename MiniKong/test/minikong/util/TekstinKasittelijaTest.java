@@ -19,9 +19,15 @@ public class TekstinKasittelijaTest {
     }
     
     @Test
+    public void kaksiKonstruktoria(){
+        assertNotNull(tk);
+        assertNotNull(new TekstinKasittelija(tt, "ffff"));
+    }
+    
+    @Test
     public void konstruktoriEiKoskeTekstiin(){
         assertNull(tt.getSananNaapurit("sana"));
-        assertEquals(tt.getSanamaara(), 0);
+        assertEquals(0, tt.getSanamaara());
         assertFalse(tt.sanaListattu(""));
     }
     
@@ -51,7 +57,8 @@ public class TekstinKasittelijaTest {
     
     @Test
     public void kasittelijaLaskeeSanamaaran(){
+        assertEquals(0, tt.getSanamaara());
         tk.kasittele();
-        assertEquals(tt.getSanamaara(), 12);
+        assertEquals(12, tt.getSanamaara());
     }
 }

@@ -26,9 +26,7 @@ public class OhjeKuuntelija implements ActionListener{
         StringBuilder viesti = new StringBuilder();
         viesti.append("<html>");
         viesti.append("<br>");
-        viesti.append("Aloita valitsemalla tekstitiedosto, ");
-        viesti.append("<br>");
-        viesti.append("tai syöttämällä teksti itse.");
+        viesti.append("Aloita valitsemalla tekstitiedosto, tai syöttämällä teksti itse.");
         viesti.append("<br>");
         viesti.append("Tiedoston tulee olla muotoa txt.");
         viesti.append("<br>");
@@ -36,9 +34,13 @@ public class OhjeKuuntelija implements ActionListener{
         viesti.append("<br>");
         viesti.append("Valitse seuraavaksi näytettävien naapurien määrä.");
         viesti.append("<br>");
-        viesti.append("Tulokset esitetään muodossa \'sana\' (esiintymismäärä).");
+        viesti.append("Tulokset esitetään muodossa: sana (esiintymismäärä).");
         viesti.append("<br>");
         viesti.append("Naapurit tulostuvat esiintymismäärien mukaisessa järjestyksessä.");
+        viesti.append("<br>");
+        viesti.append("Hauissa ei huomioda lainausmerkkejä tai välimerkkejä sanan lopussa tai alussa");
+        viesti.append("<br>");
+        viesti.append("silloin kun ne esiintyvät kieliopillisesti tai toistuvasti peräkkäin.");
         viesti.append("<br>");
         viesti.append("Mahdolliset virheilmoitukset tulostetaan myös ikkunan alaosaan.");
         viesti.append("<br>");

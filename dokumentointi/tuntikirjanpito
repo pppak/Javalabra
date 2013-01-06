@@ -86,3 +86,6 @@
     (1,5 h)
   - käyttöliittymän luokkia + sälää siistitty, abstrakti luokka
     'komento' poistettu (lopullisessa toteutuksessa tarpeeton) (1 h)
+  - komento-paketti + jäljelle jäänyut luokka kokonaan pois,
+    toiminnallisuus siirretty SananNaapurit-luokalle; Siistijälle lisää
+    toimintoja; muita luokkia refaktoroitu (1 h)
