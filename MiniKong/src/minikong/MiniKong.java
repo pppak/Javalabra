@@ -5,7 +5,7 @@ import javax.swing.SwingUtilities;
 import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.Paaikkuna;
 
-/** Luo ja käynnistää käyttöliittymän.
+/** Luo ja käynnistää käyttöliittymän ja TekstinTiedot olion.
  * 
  * @author Pia Pakarinen
  * 

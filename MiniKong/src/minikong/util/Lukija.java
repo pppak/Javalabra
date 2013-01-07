@@ -10,8 +10,15 @@ import java.util.Scanner;
  */
 public class Lukija {
 
+    /**
+     * Lukijan käyttämä Scanner-olio.
+     */
     private Scanner lukija;
 
+    /** Luo uuden Lukija olion, jonka Scanner-olio saa parametrikseen tiedoston.
+     * 
+     * @param tiedosto käsiteltävä tekstitiedosto
+     */
     public Lukija(File tiedosto) {
         try {
             this.lukija = new Scanner(tiedosto);
@@ -20,18 +27,33 @@ public class Lukija {
         }
     }
 
+    /** Luo uuden Lukija olion, jonka Scanner-olio saa parametrikseen Stringin.
+     * 
+     * @param text käsiteltävä teksti Stringinä
+     */
     Lukija(String text) {
         this.lukija = new Scanner(text);
     }
 
+    /** Palauttaa tekstissä seuraavan sanan.
+     * 
+     * @return seuraava sana
+     */
     public String seuraavaSana() {
         return this.lukija.next();
     }
 
+    /**
+     * Sulkee Lukijan Scanner-olion.
+     */
     public void tiedostoValmis() {
         this.lukija.close();
     }
 
+    /** Tarkistaa löytyykö tekstistä seuraavaa sanaa.
+     * 
+     * @return true jos tekstissä vielä sanoja
+     */
     public boolean onkoSeuraava() {
         return this.lukija.hasNext();
     }
