@@ -13,6 +13,10 @@ import minikong.kayttoliittyma.Paaikkuna;
 
 public class MiniKong {
 
+    /** Luo TekstinTiedot olion. Luo käyttöliittymän ja käynnistää sen.
+     * 
+     * @param args 
+     */
     public static void main(String[] args) {        
         Paaikkuna GUI = new Paaikkuna(new TekstinTiedot());
         SwingUtilities.invokeLater(GUI);
