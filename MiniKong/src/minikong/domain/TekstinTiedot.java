@@ -51,7 +51,7 @@ public class TekstinTiedot {
      * @return tietoa tekstin sanamääristä
      */
     public String sanamaaraTulostus() {
-        return "Tekstin sanamäärä: " + sanamaara + ". Uniikkeja sanoja löytyy " 
+        return "Tekstin sanamäärä: " + sanamaara + ". Erilaisia sanoja löytyy " 
                 + this.sanojenNaapurit.size() + ".\n";
     }
 

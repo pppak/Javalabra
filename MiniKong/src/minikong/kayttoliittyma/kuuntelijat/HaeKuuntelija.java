@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import minikong.domain.SananNaapurit;
 import minikong.domain.TekstinTiedot;
-import minikong.kayttoliittyma.NaapurienMaaranValinta;
-import minikong.kayttoliittyma.Tuloslaatikko;
+import minikong.kayttoliittyma.komponentit.NaapurienMaaranValinta;
+import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
 import minikong.util.Siistija;
 
 /** Suorittaa sanan naapureiden haun tulosten tulostuksen.

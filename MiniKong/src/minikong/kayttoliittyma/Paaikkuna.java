@@ -4,6 +4,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import minikong.domain.TekstinTiedot;
+import minikong.kayttoliittyma.komponentit.*;
 
 /** Luo käyttöliittymän pääikkunan ja asettaa sen komponentit.
  * 
@@ -12,13 +13,26 @@ import minikong.domain.TekstinTiedot;
 
 public class Paaikkuna implements Runnable {
 
+    /**
+     * Pääikkunan JFrame olio.
+     */
     private JFrame frame;
+    /**
+     * Käsiteltävän tekstin tiedot.
+     */
     private TekstinTiedot teksti;
 
+    /**
+     * Luo uuden Paaikkunan ja asettaa tälle annetun TekstinTiedot olion.
+     * @param t tiedot tallettava TekstinTiedot olio
+     */
     public Paaikkuna(TekstinTiedot t) {
         this.teksti = t;
     }
 
+    /**
+     * Käynnistää ja kokoaa Pääikkunan, kutsuu teeKomponentit metodia.
+     */
     @Override
     public void run() {
         frame = new JFrame();
@@ -32,6 +46,11 @@ public class Paaikkuna implements Runnable {
         frame.setVisible(true);
     }
 
+    /**
+     * Tekee pääikkunaan kuuluvat osat ja asettaa ne odottamaan listalle. Lopuksi kutsuu lisaaIkkunaan
+     * metodia.
+     * @param container Pääikkunan container olio 
+     */
     private void teeKomponentit(Container container) {
         container.setLayout(new GridBagLayout());
         
@@ -61,6 +80,15 @@ public class Paaikkuna implements Runnable {
         lisaaIkkunaan(paaikkunanOsat, container);
     }
 
+    /**
+     * Alustaa parametrina annetun listan Komponentti-oliot kutsumalla näiden asetaRuutuun ja
+     * teeKomponentit metodeja. Asettaa oliot pääikkunan container olioon komponentin tietojen mukaisesti.
+     * @param osat lista pääikkunaan asetettavista eri osista
+     * @param container pääikkunan container olio
+     * 
+     * @see minikong.kayttoliittyma.Komponentti#asetaRuutuun() 
+     * @see minikong.kayttoliittyma.Komponentti#teeKomponentit() 
+     */
     private void lisaaIkkunaan(ArrayList<Komponentti> osat, Container container) {
         for (Komponentti komponentti : osat) {
             komponentti.asetaRuutuun();

@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.ApuIkkuna;
-import minikong.kayttoliittyma.Tuloslaatikko;
+import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
 
 /** Luo uuden ikkunan ja tuloslaatikon jossa näytetään tekstissä esiintyvät uniikit sanat.
  * 

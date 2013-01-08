@@ -2,7 +2,7 @@ package minikong.kayttoliittyma.kuuntelijat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import minikong.kayttoliittyma.Tuloslaatikko;
+import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
 
 /** Tyhjentää tulokset laatikosta.
  * 

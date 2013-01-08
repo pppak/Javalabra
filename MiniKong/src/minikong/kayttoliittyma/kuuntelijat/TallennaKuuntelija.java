@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import minikong.kayttoliittyma.Tuloslaatikko;
+import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
 
 /** Hoitaa tulosten tallentamisen txt-tiedostona.
  * 
@@ -41,6 +41,7 @@ public class TallennaKuuntelija implements ActionListener {
             BufferedWriter out = new BufferedWriter(fw);
             out.write(tulokset.getTulokset().getText());
             out.close();
+            this.tulokset.addTeksti("*Tulokset tallennettu.*\n");
         } catch (IOException ex) {
         }
     }

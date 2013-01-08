@@ -1,4 +1,4 @@
-package minikong.kayttoliittyma;
+package minikong.kayttoliittyma.komponentit;
 
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
@@ -12,19 +12,33 @@ import javax.swing.SpinnerNumberModel;
 
 public class NaapurienMaaranValinta extends Komponentti{
 
+    /**
+     * Haettavien naapurien määrän näyttävä ja valitseva SpinnerModel olio.
+     */
     SpinnerModel num;
     
+    /**
+     * Luo NaapurienMaaranValinta olion yläluokan konstruktorin mukaisesti.
+     * 
+     * @see minikong.kayttoliittyma.Komponentti#Komponentti() 
+     */
     public NaapurienMaaranValinta() {
         super();
     }    
 
+    /**
+     * Asettaa NaapurienMaaranValinta olion pääikkunan neljännelle riville.
+     */
     @Override
-    void asetaRuutuun() {
+    public void asetaRuutuun() {
         super.getGbc().gridy = 4;
     }
 
+    /**
+     * Luo tekstin ja numerokentän ja asettaa nämä yläluokan JPanel olioon.
+     */
     @Override
-    void teeKomponentit() {
+    public void teeKomponentit() {
         JLabel teksti = new JLabel("Naapureita näytetään: ");
         num = new SpinnerNumberModel(1, 1, 999, 1);
         JSpinner sp = new JSpinner(num);
@@ -32,6 +46,10 @@ public class NaapurienMaaranValinta extends Komponentti{
         super.getOsa().add(sp);
     }
 
+    /**
+     * Palauttaa numerokentässä olevan luvun.
+     * @return luku joka kertoo etsittävien naapurien määrän
+     */
     public int getMaara() {
         return (Integer)num.getValue();
     }    

@@ -98,3 +98,7 @@
   - javadoc-kommentteja util-luokan paketeille (siistija, lukija,
     tekstinkäsittely) (30 min)
   - javadocit sovelluslogiikan luokille (40 min)
+8.1
+  - javadocit käyttiksen luokille (nyt myös @see merkintöjä!),
+    pääikkunaan liittyvien komponenttien luokat omaan pakkaukseen, 
+    pari pikkukorjausta (2,5 h)

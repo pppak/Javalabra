@@ -12,7 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.ApuIkkuna;
-import minikong.kayttoliittyma.Tuloslaatikko;
+import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
 
 /** Rakentaa uuden ikkunan tekstin syöttöä varten.
  * 

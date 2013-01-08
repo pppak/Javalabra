@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextArea;
 import minikong.domain.TekstinTiedot;
 import minikong.kayttoliittyma.ApuIkkuna;
-import minikong.kayttoliittyma.Tuloslaatikko;
+import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
 import minikong.util.TekstinKasittelija;
 
 /** Laittaa syötetyn tekstin käsittelyyn ja tulostaa käsittelyn tulokset.

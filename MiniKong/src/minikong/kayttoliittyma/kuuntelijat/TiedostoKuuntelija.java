@@ -7,7 +7,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import minikong.domain.TekstinTiedot;
-import minikong.kayttoliittyma.Tuloslaatikko;
+import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
 import minikong.util.TekstinKasittelija;
 
 /** Hankkii ja laittaa valitun tekstitiedoston käsittelyyn.
