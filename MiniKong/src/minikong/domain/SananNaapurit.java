@@ -24,7 +24,8 @@ public class SananNaapurit extends Sana{
     /** Luo uuden SananNaapurit olion, joka asettaa esiintymismäärän ja sanan itse 
      * yliluoka konstruktorin mukaisesti, ja alustaa uudet tyhjät listat naapureita varten.
      * 
-     * @param sana sana itse 
+     * @param sana sana itse
+     * @see minikong.domain.Sana#Sana(java.lang.String) 
      */
     public SananNaapurit(String sana) {
         super(sana);
@@ -56,6 +57,8 @@ public class SananNaapurit extends Sana{
      * @param maara kuinka monta naapureista tulostetaan
      * @param vasen true jos tulostetaan naapurit vasemmalta
      * @return käyttöliittymässä tulostettava teksti naapureista
+     * 
+     * @see minikong.domain.SananNaapurit#jarjestaLista(java.lang.Boolean) 
      */
     public String tulostaNaapurit(int maara, Boolean vasen) {
         ArrayList<Sana> naapurit = this.jarjestaLista(vasen);

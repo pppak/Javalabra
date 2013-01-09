@@ -10,12 +10,23 @@ import javax.swing.JFrame;
  */
 public class SulkunappiKuuntelija implements ActionListener {
 
+    /**
+     * Suljettavan ikkunan frame.
+     */
     private JFrame f;
     
+    /**
+     * Asettaa attribuutin parametrin mukaiseksi.
+     * @param frame asetettava JFrame
+     */
     public SulkunappiKuuntelija(JFrame frame) {
         this.f = frame;
     }
 
+    /**
+     * Poistaa ikkunan.
+     * @param ae käyttäjä painoi nappia
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         f.dispose();

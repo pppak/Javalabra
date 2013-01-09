@@ -13,12 +13,27 @@ import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
  */
 public class ListausKuuntelija implements ActionListener{
 
+    /**
+     * Tiedot sanoista sisältävä TekstinTiedot olio.
+     */
     private TekstinTiedot tt;
     
+    /**
+     * Asettaa attribuutin parametrin mukaiseksi.
+     * @param tt TekstinTiedot
+     */
     public ListausKuuntelija(TekstinTiedot tt) {
         this.tt = tt;
     }
 
+    /**
+     * Luo uuden ikkunan ja Tuloslaatikon, ja tulostaa tähän tiedot tekstin sanoista.
+     * @param ae käyttäjä on painanut nappia
+     * 
+     * @see minikong.kayttoliittyma.ApuIkkuna
+     * @see minikong.kayttoliittyma.komponentit.Tuloslaatikko
+     * @see minikong.domain.TekstinTiedot#kaikkiSanatTekstissäTulostus() 
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         Tuloslaatikko sanat = new Tuloslaatikko();

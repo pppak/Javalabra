@@ -20,17 +20,36 @@ import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
  */
 public class SyottonappiKuuntelija implements ActionListener{
 
-    TekstinTiedot tt;
-    Tuloslaatikko tulo;
-    ApuIkkuna syottoIkkuna;
+    /**
+     * Kuuntelijalle välitettävä TekstinTiedot.
+     */
+    private TekstinTiedot tt;
+    /**
+     * Kuuntelijalle välitettävä Tuloslaatikko.
+     */
+    private Tuloslaatikko tulo;
+    /**
+     * Syöttöä varten luotava ApuIkkuna.
+     */
+    private ApuIkkuna syottoIkkuna;
     
+    /**
+     * Asettaa attribuutit parametrien mukaisiksi, luo uuden ApuIkkunan.
+     * @param tt TekstinTiedot
+     * @param tulo Tuloslaatikko
+     */
     public SyottonappiKuuntelija(TekstinTiedot tt, Tuloslaatikko tulo) {
         this.tt = tt;
         this.tulo = tulo;
+        
         //sisältö asetetaan myöhemmin; getFrame tarpeellinen ennen kuin valmis
         this.syottoIkkuna = new ApuIkkuna("Tekstin syöttö", "Peru", null, 400, 400);        
     }
 
+    /**
+     * Asettaa uuden ikkunan sisällön ja käynnistää ikkunan.
+     * @param ae käyttäjä painoi nappia
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         JPanel ikkuna = new JPanel(new GridBagLayout());
@@ -39,11 +58,20 @@ public class SyottonappiKuuntelija implements ActionListener{
         syottoIkkuna.run();
     }
     
+    /**
+     * Tekee syöttöikkunaa varten ohjetekstin.
+     * @return ohjeistava teksti
+     */
     private String teeTeksti() {
         return "<html>Kopioi tai kirjoita alla olevaan ikkunaan teksti, <br>"
                 + "josta haluat suorittaa haut.";
     }
 
+    /**
+     * Muodostaa ja asettaa syöttöikkunan komponentit.
+     * @param ikkuna ikkunan sisältämä JPanel johon osat asetetaan
+     * @return ikkunan sisältö JPanelissa
+     */
     private JPanel teeIkkuna(JPanel ikkuna) {
         GridBagConstraints gbc = new GridBagConstraints();
         

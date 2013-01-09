@@ -102,3 +102,6 @@
   - javadocit käyttiksen luokille (nyt myös @see merkintöjä!),
     pääikkunaan liittyvien komponenttien luokat omaan pakkaukseen, 
     pari pikkukorjausta (2,5 h)
+9.1
+  - javadocit lopuille, sanahaun tekstin muodostaminen uudelle
+    sovelluksen luokalle, testit tälle (3 h)

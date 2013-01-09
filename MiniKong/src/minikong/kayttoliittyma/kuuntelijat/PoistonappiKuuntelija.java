@@ -10,12 +10,23 @@ import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
  */
 public class PoistonappiKuuntelija implements ActionListener{
 
+    /**
+     * Tuloslaatikko joka tyhjennetään.
+     */
     private Tuloslaatikko tulo;
     
+    /**
+     * Asettaa Tuloslaatikko tulon parametrien mukaiseksi.
+     * @param tulo Tuloslaatikko
+     */
     public PoistonappiKuuntelija(Tuloslaatikko tulo) {
         this.tulo = tulo;
     }
 
+    /**
+     * Tyhjentää Tuloslaatikon tekstistä.
+     * @param ae käyttäjä painaa nappia
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         tulo.tyhjenna();

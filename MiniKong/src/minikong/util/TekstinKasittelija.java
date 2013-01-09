@@ -15,10 +15,12 @@ public class TekstinKasittelija {
     private TekstinTiedot teksti;
     /**
      * Tekstin sana sanalta läpikäyvä Lukija olio
+     * @see minikong.util.Lukija
      */
     private Lukija lukija;
     /**
      * Siistii läpikäytävät sanat
+     * @see minikong.util.Siistija
      */
     private Siistija siistija;
 
@@ -27,6 +29,8 @@ public class TekstinKasittelija {
      * 
      * @param tt TekstinTiedot olio johon käsittelyn tiedot tallennetaan
      * @param f Käyttäjän antama tekstitiedosto
+     * 
+     * @see minikong.util.Lukija#Lukija(java.io.File) 
      */
     public TekstinKasittelija(TekstinTiedot tt, File f) {
         this.teksti = tt;
@@ -39,6 +43,8 @@ public class TekstinKasittelija {
      * 
      * @param tt TekstinTiedot olio johon käsittelyn tiedot tallennetaan
      * @param text Käyttäjän syöttämä tekstitiedosto
+     * 
+     * @see minikong.util.Lukija#Lukija(java.lang.String) 
      */
     public TekstinKasittelija(TekstinTiedot tt, String text) {
         this.teksti = tt;

@@ -12,8 +12,17 @@ import minikong.kayttoliittyma.ApuIkkuna;
  */
 public class OhjeKuuntelija implements ActionListener{
 
+    /**
+     * ApuIkkuna jossa ohje esitetään.
+     */
     ApuIkkuna ohjeViesti;
 
+    /**
+     * Luo uuden ApuIkkunan ja asettaa siihen halutun sisällön.
+     * 
+     * @see minikong.kayttoliittyma.ApuIkkuna
+     * @see minikong.kayttoliittyma.kuuntelijat.OhjeKuuntelija#teeViesti() 
+     */
     public OhjeKuuntelija() { 
         JPanel sisalto = new JPanel();
         String teksti = teeViesti();
@@ -21,11 +30,19 @@ public class OhjeKuuntelija implements ActionListener{
         this.ohjeViesti = new ApuIkkuna("Ohje", "OK", sisalto, 300, 300);
     }
 
+    /**
+     * Ohjeen sisältävä ApuIkkuna näkyy käyttäjälle.
+     * @param ae käyttäjä painoi nappia
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         this.ohjeViesti.run();
     }   
 
+    /**
+     * Rakentaa käyttäjälle näytettävän ohjeviestin.
+     * @return ohjeviesti
+     */
     private String teeViesti() {
         StringBuilder viesti = new StringBuilder();
         viesti.append("<html>");

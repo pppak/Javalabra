@@ -14,11 +14,30 @@ import minikong.util.TekstinKasittelija;
  */
 class SyottoKuuntelija implements ActionListener{
 
+    /**
+     * Laatikko, johon käsiteltävän tekstin voi syöttää.
+     */
     private JTextArea syottoAlue;
+    /**
+     * Tiedot tallentava TekstinTiedot olio.
+     */
     private TekstinTiedot teksti;
+    /**
+     * Käyttäjälle tulostuksen näyttävä Tuloslaatikko.
+     */
     private Tuloslaatikko tulo;
+    /**
+     * Tekstin syötön mahdollistava ApuIkkuna.
+     */
     private ApuIkkuna ikkuna;
     
+    /**
+     * Asettaa attribuuteiksi parametreina saadut tiedot.
+     * @param pasta alue johon käyttäjän on mahdollista syöttää tekstiä
+     * @param tt TekstinTiedot, tallentaja
+     * @param tulo Tuloslaatikko johon tulee tulostus
+     * @param ikkuna Syöttöikkuna
+     */
     SyottoKuuntelija(JTextArea pasta, TekstinTiedot tt, Tuloslaatikko tulo, ApuIkkuna ikkuna) {
         this.syottoAlue = pasta;
         this.teksti = tt;
@@ -26,18 +45,25 @@ class SyottoKuuntelija implements ActionListener{
         this.ikkuna = ikkuna;
     }   
 
+    /**
+     * Asettaa syötetyn tekstin tiedot tyhjään TekstinTiedot olioon.
+     * @param ae käyttäjä painoi nappia
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         this.teksti.uusiTeksti();
         TekstinKasittelija parser = new TekstinKasittelija(this.teksti, syottoAlue.getText());
         this.teksti = parser.kasittele();
         
-        paivitaTulokset(teksti);
+        paivitaTulokset();
         this.ikkuna.getFrame().dispose();
     }
 
-    private void paivitaTulokset(TekstinTiedot tt) {
-        if (tt.getSanamaara() == 0) {
+    /**
+     * Muodostaa tekstin syötöstä syntyvän tulostuksen.
+     */
+    private void paivitaTulokset() {
+        if (teksti.getSanamaara() == 0) {
             tulo.addTeksti("Tekstiä ei syötetty.\n");
             return;
         }

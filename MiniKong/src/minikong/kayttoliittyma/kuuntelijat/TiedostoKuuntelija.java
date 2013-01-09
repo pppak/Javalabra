@@ -16,16 +16,35 @@ import minikong.util.TekstinKasittelija;
  */
 public class TiedostoKuuntelija implements ActionListener {
 
+    /**
+     * Käsiteltävä TekstinTiedot.
+     */
     private TekstinTiedot teksti;
+    /**
+     * Pääikkunan JFrame.
+     */
     private JFrame frame;
+    /**
+     * Tulokset näyttävä Tuloslaatikko.
+     */
     private Tuloslaatikko tulo;
 
+    /**
+     * Luo uuden parametrien mukaisen TiedostoKuuntelija olion.
+     * @param teksti TekstinTiedot
+     * @param frame Pääikkunan JFrame
+     * @param tulo Tuloslaatikko
+     */
     public TiedostoKuuntelija(TekstinTiedot teksti, JFrame frame, Tuloslaatikko tulo) {
         this.teksti = teksti;
         this.frame = frame;
         this.tulo = tulo;
     }
 
+    /**
+     * Valitsee tiedoston, tarkistaa sen olemassaolon ja asettaa sen käsittelyyn.
+     * @param ae käyttäjä painoi nappia
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         JFileChooser tiedVal = new JFileChooser();
@@ -48,12 +67,16 @@ public class TiedostoKuuntelija implements ActionListener {
         TekstinKasittelija parser = new TekstinKasittelija(this.teksti, file);
         this.teksti = parser.kasittele();
         
-        paivitaTulokset(tiedVal, file);        
+        paivitaTulokset(file.getName());        
     }
 
-    private void paivitaTulokset(JFileChooser tiedVal, File file) {
+    /**
+     * Asettaa tiedot valitusta tiedostosta käyttäjän nähtäväksi.
+     * @param nimi valitun tiedoston nimi
+     */
+    private void paivitaTulokset(String nimi) {
         tulo.addTeksti("*Uusi tiedosto valittu!* \n");
-        tulo.addTeksti("Valittu tiedosto: " + tiedVal.getName(file) + "\n");
+        tulo.addTeksti("Valittu tiedosto: " + nimi + "\n");
         tulo.addTeksti(this.teksti.sanamaaraTulostus());
         tulo.addTeksti("---\n");
     }

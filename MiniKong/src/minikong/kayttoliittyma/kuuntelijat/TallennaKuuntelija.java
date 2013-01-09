@@ -16,15 +16,29 @@ import minikong.kayttoliittyma.komponentit.Tuloslaatikko;
  */
 public class TallennaKuuntelija implements ActionListener {
 
+    /**
+     * Tallennettavan tekstin sisältävä Tuloslaatikko.
+     */
     private Tuloslaatikko tulokset;
+    /**
+     * Pääikkunan JFrame.
+     */
     private JFrame frame;
 
+    /**
+     * Luo uuden TallennaKuuntelija olion parametrien mukaisesti.
+     * @param t Tuloslaatikko
+     * @param frame Pääikkunan JFrame
+     */
     public TallennaKuuntelija(Tuloslaatikko t, JFrame frame) {
         this.tulokset = t;
         this.frame = frame;
-
     }
 
+    /**
+     * Käynnistää tallentavan komponentin, suorittaa tallennuksen, ja tulostaa kuittauksen.
+     * @param ae käyttäjä painoi nappia
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         JFileChooser fc = new JFileChooser();

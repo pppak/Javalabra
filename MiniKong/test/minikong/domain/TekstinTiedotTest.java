@@ -89,7 +89,7 @@ public class TekstinTiedotTest {
     
     @Test
     public void sanamaaranTulostusmuotoOikein(){
-        assertEquals("Tekstin sanamäärä: 12. Uniikkeja sanoja löytyy 9.\n" ,testeri.sanamaaraTulostus());
+        assertEquals("Tekstin sanamäärä: 12. Erilaisia sanoja löytyy 9.\n" ,testeri.sanamaaraTulostus());
     }
     
     @Test 
