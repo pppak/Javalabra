@@ -17,13 +17,19 @@ public class TekstinTiedot {
      * Lista tekstissä esiintyistä sanoista SanaNaapurit-olioina.
      */
     private TreeMap<String, SananNaapurit> sanojenNaapurit;
+    
+    /**
+     * Lista tekstin erilaisista sanoista.
+     */
+    private String sanalista;
 
     /**
-     * Luodaan uusi TekstinTiedot-olio tyhjällä sanalistalla ja sanamäärällä 0.
+     * Luodaan uusi TekstinTiedot-olio tyhjällä sanojen naapurilistalla, sanalistalla ja sanamäärällä 0.
      */
     public TekstinTiedot() {
         this.sanojenNaapurit = new TreeMap();
         this.sanamaara = 0;
+        this.sanalista = "";
     }
 
     /** Tarkistaa löytyykö parametrina annettua sanaa tekstistä.
@@ -88,17 +94,19 @@ public class TekstinTiedot {
     }
     
     /** Muodostaa tekstin kaikista tekstissä esiintyvistä sanoista ja niiden
-     * esiintymismääristä.
+     * esiintymismääristä. Palauttaa entisen sanalistan suoraan jos se on jo muodostettu.
      * 
      * @return tietoa tekstin sanoista käyttöliittymän tulostusta varten
      */
     public String kaikkiSanatTekstissäTulostus(){
-        String lista = "";
+        if (!this.sanalista.isEmpty()) {
+            return this.sanalista;
+        }
         
         for (String s : this.sanojenNaapurit.keySet()) {
-            lista += s + " (" + this.getSananNaapurit(s).getEsiintymisMaara() + ")\n";
+            this.sanalista += s + " (" + this.getSananNaapurit(s).getEsiintymisMaara() + ")\n";
         }
-        return lista;
+        return sanalista;
     }
    
     /**
@@ -107,6 +115,7 @@ public class TekstinTiedot {
     public void uusiTeksti(){
         this.sanamaara = 0;
         this.sanojenNaapurit = new TreeMap();
+        this.sanalista = "";
     }
 
     /** Palauttaa tekstin sanamäärän.
