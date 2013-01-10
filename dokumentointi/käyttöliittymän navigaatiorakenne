@@ -1,8 +1,20 @@
-Käyttöliittymän komponentit on jaettu kolmeen pakkaukseen: peruskäyttöliittymä, pääikkunan komponentit, ja kuuntelijat.
+Käyttöliittymän komponentit on jaettu kolmeen pakkaukseen:
+peruskäyttöliittymä, pääikkunan komponentit, ja kuuntelijat.
 
-Peruskäyttöliittymä koostuu eri mahdollisista ikkunoista: Pääikkunoista ja pienemmistä, eri tarkoituksiin toimivista ns. pop-up ikkunoista, jotka luodaan luokan ApuIkkuna ilmentyminä. 
+Peruskäyttöliittymä koostuu eri mahdollisista ikkunoista:
+Pääikkunoista ja pienemmistä, eri tarkoituksiin toimivista ns. pop-up
+ ikkunoista, jotka luodaan luokan ApuIkkuna ilmentyminä. 
 
-Pääikkunan komponentteja ovat pääikkunaan kuuluvat napit ja tekstikentät, jotka on toteutettu abstraktin luokan 'Komponentti' aliluokkina. Jokainen komponentti sisältää metodin joka luo komponentin omat osat ja liittää näihin tarvittaessa asianomaisen kuuntelijan. Lisäksi jokainen komponentin aliluokka asettaa oman GridBagConstraint attribuuttinsa tiedot niin, että komponentti asetetaan pääikkunan layouttiin oikeaan kohtaan. 
-Pääikkuna luo jokaisen komponentin ja ajaa näille yllä mainitut metodit ennen sen liittämistä pääikkunan container-olioon.
+Pääikkunan komponentteja ovat pääikkunaan kuuluvat napit ja 
+tekstikentät, jotka on toteutettu abstraktin luokan 'Komponentti' 
+aliluokkina. Jokainen komponentti sisältää metodin joka luo 
+komponentin omat osat ja liittää näihin tarvittaessa asianomaisen 
+kuuntelijan. Lisäksi jokainen komponentin aliluokka asettaa oman 
+GridBagConstraint attribuuttinsa tiedot niin, että komponentti 
+asetetaan pääikkunan layouttiin oikeaan kohtaan. 
+Pääikkuna luo jokaisen komponentin ja ajaa näille yllä mainitut 
+metodit ennen sen liittämistä pääikkunan container-olioon.
 
-Kuuntelijat toteuttavat kaikki ActionListener rajapinnan. Lähes jokaiselle pääikkunan komponentille on oma kuuntelijansa, joka kutsuu ja luo tarvittavia sovelluslogiikan luokkia ja metodeja.
+Kuuntelijat toteuttavat kaikki ActionListener rajapinnan. Lähes 
+jokaiselle pääikkunan komponentille on oma kuuntelijansa, joka kutsuu 
+ja luo tarvittavia sovelluslogiikan luokkia ja metodeja.
