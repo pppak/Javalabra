@@ -59,7 +59,7 @@ public class TiedostoKuuntelija implements ActionListener {
         File file = tiedVal.getSelectedFile();
         
         if (!file.exists()) {
-            tulo.addTeksti("Tiedostoa ei löydy.");
+            tulo.addTeksti("Tiedostoa ei löydy.\n");
             return;
         }
         
