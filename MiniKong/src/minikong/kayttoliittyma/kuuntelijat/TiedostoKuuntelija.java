@@ -67,6 +67,11 @@ public class TiedostoKuuntelija implements ActionListener {
         TekstinKasittelija parser = new TekstinKasittelija(this.teksti, file);
         this.teksti = parser.kasittele();
         
+        if (this.teksti.getSanamaara() == 0) {
+            tulo.addTeksti("Ei valittu käypää tekstitiedostoa.\n");
+            return;
+        }
+        
         paivitaTulokset(file.getName());        
     }
 
